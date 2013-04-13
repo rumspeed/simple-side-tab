@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Simple Side Tab
-Plugin URI: http://www.rumspeed.com/plugins/simple-side-tab
+Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 0.8.6
+Version: 0.9.0
 Author: Scot Rumery
 Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2
 */
 
-/*  Copyright 2012  Scot Rumery (email : scot@rumspeed.com)
+/*  Copyright 2013  Scot Rumery (email : scot@rumspeed.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -213,7 +213,7 @@ function rum_sst_options_page() {
 
 
         <tr valign="top">
-        <th scope="row"><label for="rum_sst_text_shadow">Text shadow</label></th>
+        <th scope="row"><label for="rum_sst_text_shadow">Drop shadow on hover</label></th>
         <td><input name="rum_sst_plugin_options[text_shadow]" type="checkbox" value="1" <?php checked( '1', $rum_sst_text_shadow ); ?> /></td>
         </tr>
 
