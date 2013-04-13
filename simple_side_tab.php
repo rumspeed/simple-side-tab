@@ -119,12 +119,6 @@ function rum_sst_admin_menu() {
 // Display and fill the form fields for the plugin admin page
 function rum_sst_options_page() {
 
-	// Validate user has permission to execute this page
-	if ( !current_user_can( 'manage_options' ) )  {
-
-		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-
-	}
 
 ?>
 
