@@ -103,8 +103,7 @@ function rum_sst_body_tag_html() {
 	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
 
 	// Write HTML to render tab
-	echo '<a href="' . $rum_sst_tab_url . '"><div id="rum_sst_tab" class="rum_sst_contents rum_sst_left">' . $rum_sst_text_for_tab . '</div></a>';
-
+	echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"><div id="rum_sst_tab" class="rum_sst_contents rum_sst_left">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
 }
 
 
