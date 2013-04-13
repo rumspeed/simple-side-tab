@@ -179,7 +179,7 @@ function rum_sst_options_page() {
 
         <tr valign="top">
         <th scope="row" width="230"><label for="rum_sst_text_for_tab">Text for tab</label></th>
-        <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo $rum_sst_text_for_tab; ?>" /></td>
+        <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo esc_html( $rum_sst_text_for_tab ); ?>" /></td>
         </tr>
 
 
@@ -213,13 +213,13 @@ function rum_sst_options_page() {
 
         <tr valign="top">
         <th scope="row"><label for="rum_sst_tab_url">Tab URL</label></th>
-        <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo $rum_sst_tab_url; ?>" /></td>
+        <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo esc_url( $rum_sst_tab_url ); ?>" /></td>
         </tr>
 
 
         <tr valign="top">
         <th scope="row"><label for="rum_sst_pixels_from_top">Position from top (px)</label></th>
-        <td><input maxlength="4" size="4" type="text" name="rum_sst_plugin_options[pixels_from_top]" value="<?php echo $rum_sst_pixels_from_top; ?>" /></td>
+        <td><input maxlength="4" size="4" type="text" name="rum_sst_plugin_options[pixels_from_top]" value="<?php echo sanitize_text_field( $rum_sst_pixels_from_top ); ?>" /></td>
         </tr>
 
     </table>
@@ -240,19 +240,19 @@ function rum_sst_options_page() {
 
 		<tr valign="top">
 			<th scope="row"><label for="rum_sst_text_color">Text color</label></th>
-			<td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo $rum_sst_text_color; ?>" name="rum_sst_plugin_options[text_color]" id="color1" /></td>
+			<td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $rum_sst_text_color ); ?>" name="rum_sst_plugin_options[text_color]" id="color1" /></td>
 		</tr>
 
 
 		<tr valign="top">
 			<th scope="row"><label for="rum_sst_tab_color">Tab color</label></th>
-			<td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo $rum_sst_tab_color; ?>" name="rum_sst_plugin_options[tab_color]" id="color2" /></td>
+			<td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $rum_sst_tab_color ); ?>" name="rum_sst_plugin_options[tab_color]" id="color2" /></td>
 		</tr>
 
 
 		<tr valign="top">
 			<th scope="row"><label for="rum_sst_hover_color">Tab hover color</label></th>
-			<td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo $rum_sst_hover_color; ?>" name="rum_sst_plugin_options[hover_color]" id="color3" /></td>
+			<td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $rum_sst_hover_color ); ?>" name="rum_sst_plugin_options[hover_color]" id="color3" /></td>
 		</tr>
 
 		<tr valign="top">
