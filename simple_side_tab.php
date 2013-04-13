@@ -187,13 +187,13 @@ function rum_sst_options_page() {
         <th scope="row"><label for="rum_sst_tab_font">Select font</label></th>
         <td>
 			<select name="rum_sst_plugin_options[font_family]">
-			  <option <?php if ( $rum_sst_font_family =='Arial, sans-serif' )                                   { echo 'selected="selected" '; } ?>value="Arial, sans-serif">ARIAL</option>
-			  <option <?php if ( $rum_sst_font_family =='Georgia, serif' )                                      { echo 'selected="selected" '; } ?>value="Georgia, serif">GEORGIA</option>
-			  <option <?php if ( $rum_sst_font_family =='"Helvetica Neue", Helvetica, sans-serif' )             { echo 'selected="selected" '; } ?>value='"Helvetica Neue", Helvetica, sans-serif'>HELVETICA NEUE / HELVETICA</option>
-			  <option <?php if ( $rum_sst_font_family =='"Lucida Sans Unicode", "Lucida Grande", sans-serif' )  { echo 'selected="selected" '; } ?>value='"Lucida Sans Unicode", "Lucida Grande", sans-serif'>LUCIDA</option>
-			  <option <?php if ( $rum_sst_font_family =='Tahoma, sans-serif' )                                  { echo 'selected="selected" '; } ?>value="Tahoma, sans-serif">TAHOMA</option>
-			  <option <?php if ( $rum_sst_font_family =='"Trebuchet MS", sans-serif' )                          { echo 'selected="selected" '; } ?>value='"Trebuchet MS", sans-serif'>TREBUCHET MS</option>
-			  <option <?php if ( $rum_sst_font_family =='Verdana, sans-serif' )                                 { echo 'selected="selected" '; } ?>value="Verdana, sans-serif">VERDANA</option>
+				<option value="Arial, sans-serif"									<?php selected( $rum_sst_font_family, 'Arial, sans-serif' );									?>	>ARIAL</option>
+				<option value="Georgia, serif"										<?php selected( $rum_sst_font_family, 'Georgia, serif' );										?>	>GEORGIA</option>
+				<option value='"Helvetica Neue", Helvetica, sans-serif'				<?php selected( $rum_sst_font_family, '"Helvetica Neue", Helvetica, sans-serif' );				?>	>HELVETICA NEUE / HELVETICA</option>
+				<option value='"Lucida Sans Unicode", "Lucida Grande", sans-serif'	<?php selected( $rum_sst_font_family, '"Lucida Sans Unicode", "Lucida Grande", sans-serif' );	?>	>LUCIDA</option>
+				<option value="Tahoma, sans-serif"									<?php selected( $rum_sst_font_family, 'Tahoma, sans-serif' );									?>	>TAHOMA</option>
+				<option value='"Trebuchet MS", sans-serif'							<?php selected( $rum_sst_font_family, '"Trebuchet MS", sans-serif' );							?>	>TREBUCHET MS</option>
+				<option value="Verdana, sans-serif"									<?php selected( $rum_sst_font_family, 'Verdana, sans-serif' );									?>	>VERDANA</option>
 			</select>
         </td>
         </tr>
