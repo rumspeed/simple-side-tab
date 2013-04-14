@@ -65,7 +65,7 @@ if ( is_admin() ){ // admin actions and filters
 	add_action( 'admin_init', 'rum_sst_settings_api_init');
 
 	// Hook to fire farbtastic includes for using built in WordPress color picker functionality
-	add_action('init', 'rum_sst_farbtastic_script');
+	add_action('admin_enqueue_scripts', 'rum_sst_farbtastic_script');
 
 	// Display the 'Settings' link in the plugin row on the installed plugins list page
 	add_filter( 'plugin_action_links_'.plugin_basename(__FILE__), 'rum_sst_admin_plugin_actions', -10);
@@ -83,8 +83,14 @@ if ( is_admin() ){ // admin actions and filters
 
 
 // Include WordPress color picker functionality
-function rum_sst_farbtastic_script() {
+function rum_sst_farbtastic_script($hook) {
 
+	// only enqueue farbtastic on the plugin settings page
+	if( $hook != 'settings_page_rum_simple_side_tab' ) 
+		return;
+
+
+	// load the style and script for farbtastic
 	wp_enqueue_style( 'farbtastic' );
 	wp_enqueue_script( 'farbtastic' );
 
