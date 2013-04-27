@@ -3,7 +3,7 @@
 Plugin Name: Simple Side Tab
 Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 0.9.1
+Version: 0.9.2
 Author: Scot Rumery
 Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2
@@ -46,7 +46,8 @@ function rum_sst_activate_plugin() {
 		'pixels_from_top'  => '350',
 		'text_color'       => '#FFFFFF',
 		'tab_color'        => '#A0244E',
-		'hover_color'      => '#A4A4A4'
+		'hover_color'      => '#A4A4A4',
+		'target_blank'     => '0'
 		);
 
 	// create field in WP_options to store all plugin data in one field
@@ -132,9 +133,15 @@ function rum_sst_body_tag_html() {
 	// fetch individual values from the plugin option variable array
 	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
 	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
+	$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
+
+	// set the page target
+	if ($rum_sst_target_blank == '1') {
+		$rum_sst_target_blank = ' target="_blank"';
+	}
 
 	// Write HTML to render tab
-	echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"><div id="rum_sst_tab" class="rum_sst_contents rum_sst_left">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
+	echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents rum_sst_left">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
 }
 
 
@@ -178,6 +185,7 @@ function rum_sst_options_page() {
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
 	$rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
+	$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
 
 ?>
 
@@ -239,6 +247,12 @@ function rum_sst_options_page() {
 		<tr valign="top">
 		<th scope="row"><label for="rum_sst_text_shadow">Drop shadow on hover</label></th>
 		<td><input name="rum_sst_plugin_options[text_shadow]" type="checkbox" value="1" <?php checked( '1', $rum_sst_text_shadow ); ?> /></td>
+		</tr>
+
+
+		<tr valign="top">
+		<th scope="row"><label for="rum_sst_target_blank">Open link in new window</label></th>
+		<td><input name="rum_sst_plugin_options[target_blank]" type="checkbox" value="1" <?php checked( '1', $rum_sst_target_blank ); ?> /></td>
 		</tr>
 
 
