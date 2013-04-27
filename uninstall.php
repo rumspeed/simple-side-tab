@@ -8,5 +8,3 @@ if( !defined( 'WP_UNINSTALL_PLUGIN') )
 // Delete all plugin related fields from the options table
 delete_option( 'rum_sst_plugin_options' );
 
-
-?>

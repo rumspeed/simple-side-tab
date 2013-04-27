@@ -426,8 +426,5 @@ function rum_sst_custom_css_hook() {
 
 </style>
 
-
-
 <?php
 }
-?>
