@@ -1,7 +1,7 @@
 === Simple Side Tab ===
 Contributors: srumery
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RYGE4PYK68H54
-Tags: tab, navigation, admin
+Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 3.0
 Tested up to: 3.5.1
 Stable tag: 1.0
@@ -17,7 +17,7 @@ Add a "Global Call To Action" on your website. Simple Side Tab adds a vertical t
 Need an effective way to highlight a conversion page? This plugin will help.
 
 
-New features include: 
+= New features =
 * the tab is no longer displayed on the page it links to
 * added an option to "Open link in new window"
 
@@ -61,7 +61,6 @@ No. It currently only works on the left. An upcoming release will work on both s
 == Changelog ==
 
 = 1.0.0 =
-
 * FEATURE: remove tab if active page matches the tab url from the settings page
 * FEATURE: added a checkbox option to "Open link in new window"; if checked, target="_blank" is added to the tab anchor tag
 * Farbtastic is no longer being included on every admin page
@@ -76,5 +75,4 @@ Hat tip to Pippin Williamson for his suggestions from his plugin review. He has 
 
 
 = 0.8.6 =
-
 * Initial plugin release
