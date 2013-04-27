@@ -3,7 +3,7 @@
 Plugin Name: Simple Side Tab
 Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 0.9.0
+Version: 0.9.1
 Author: Scot Rumery
 Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2
@@ -72,12 +72,37 @@ if ( is_admin() ){ // admin actions and filters
 
 } else { // non-admin enqueues, actions, and filters
 
-	// hook to get option values and dynamically render css to support the tab classes
-	add_action( 'wp_head', 'rum_sst_custom_css_hook' );
 
-	// hook to get option values and write the div for the Simple Side Tab to display
-	add_action( 'wp_footer', 'rum_sst_body_tag_html' );
+	// get the current page url
+	$rum_current_page_url 			= rum_get_full_url();
 
+
+	// get the tab url from the plugin option variable array
+	$rum_sst_plugin_option_array	= get_option( 'rum_sst_plugin_options' );
+	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
+
+
+	// compare the page url and the option tab - don't render the tab if the values are the same
+	if ( $rum_sst_tab_url != $rum_current_page_url ) {
+
+		// hook to get option values and dynamically render css to support the tab classes
+		add_action( 'wp_head', 'rum_sst_custom_css_hook' );
+
+		// hook to get option values and write the div for the Simple Side Tab to display
+		add_action( 'wp_footer', 'rum_sst_body_tag_html' );
+	}
+}
+
+
+
+// get the complete url for the current page
+function rum_get_full_url()
+{
+	$s 			= empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+	$sp 		= strtolower($_SERVER["SERVER_PROTOCOL"]);
+	$protocol 	= substr($sp, 0, strpos($sp, "/")) . $s;
+	$port 		= ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
+	return $protocol . "://" . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
 }
 
 
