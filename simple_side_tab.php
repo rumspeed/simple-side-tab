@@ -3,7 +3,7 @@
 Plugin Name: Simple Side Tab
 Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 1.0.0
+Version: 1.0.1
 Author: Scot Rumery
 Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2
@@ -133,7 +133,13 @@ function rum_sst_body_tag_html() {
 	// fetch individual values from the plugin option variable array
 	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
 	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
-	$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
+
+	// this field was added after the initial release so it may not be set
+	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
+		$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
+	} else {
+		$rum_sst_target_blank			= '0';
+	}
 
 	// set the page target
 	if ($rum_sst_target_blank == '1') {
@@ -185,7 +191,13 @@ function rum_sst_options_page() {
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
 	$rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
-	$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
+
+	// this field was added after the initial release so it may not be set
+	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
+		$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
+	} else {
+		$rum_sst_target_blank			= '0';
+	}
 
 ?>
 
