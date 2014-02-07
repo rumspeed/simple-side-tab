@@ -1,5 +1,5 @@
 === Simple Side Tab ===
-Contributors: srumery
+Contributors: srumery, idowning
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RYGE4PYK68H54
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 3.0
@@ -59,6 +59,11 @@ No. It currently only works on the left. An upcoming release will work on both s
 1. Simple Side Tab is action based on option settings.
 
 == Changelog ==
+
+= 1.0.1 =
+* FEATURE: option for left or right location for the tab
+* fix IE8 display issue
+* Right side display on IE8 not working correctly yet
 
 = 1.0.0 =
 * FEATURE: remove tab if active page matches the tab url from the settings page
