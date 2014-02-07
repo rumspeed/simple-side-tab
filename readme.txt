@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,10 +60,9 @@ No. It currently only works on the left. An upcoming release will work on both s
 
 == Changelog ==
 
-= 1.0.1 =
+= 1.0.2 =
 * FEATURE: option for left or right location for the tab
-* fix IE8 display issue
-* Right side display on IE8 not working correctly yet
+* fix IE8 display issue. made conditional statement for IE8 and IE7
 
 = 1.0.0 =
 * FEATURE: remove tab if active page matches the tab url from the settings page

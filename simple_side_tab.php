@@ -3,7 +3,7 @@
 Plugin Name: Simple Side Tab
 Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 1.0.1.1
+Version: 1.0.2
 Author: Scot Rumery
 Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2
@@ -154,9 +154,20 @@ function rum_sst_body_tag_html() {
 	}else {
 		$rum_sst_left_right_location = 'rum_sst_left';
 	}
-
-	// Write HTML to render tab
-	echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
+	
+	if(preg_match('/(?i)msie [7-8]/',$_SERVER['HTTP_USER_AGENT']))
+	{
+	    // if IE 7 or 8
+	    // Write HTML to render tab
+		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
+	}
+	else
+	{
+	   // if IE>8
+	   // Write HTML to render tab
+	   echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
+	}
+	
 }
 
 
@@ -444,7 +455,6 @@ function rum_sst_custom_css_hook() {
 	-webkit-transform:rotate(270deg);
 	-moz-transform:rotate(270deg);
 	-ms-transform:rotate(270deg);
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	-o-transform:rotate(270deg);
 	transform:rotate(270deg);
 }
@@ -459,9 +469,17 @@ function rum_sst_custom_css_hook() {
 	-webkit-transform:rotate(90deg);
 	-moz-transform:rotate(90deg);
 	-ms-transform:rotate(90deg);
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	-o-transform:rotate(90deg);
 	transform:rotate(90deg);
+}
+
+.rum_sst_right.less-ie-9 {
+	right:-120px;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+
+.rum_sst_left.less-ie-9 {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 /* End Simple Side Tab Styles*/
