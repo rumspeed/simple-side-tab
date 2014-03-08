@@ -211,7 +211,6 @@ function rum_sst_options_page() {
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
 	$rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
-	$rum_sst_left_right				= $rum_sst_plugin_option_array[ 'left_right' ];
 
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
@@ -219,6 +218,14 @@ function rum_sst_options_page() {
 	} else {
 		$rum_sst_target_blank			= '0';
 	}
+
+	// this field was added after the initial release so it may not be set
+	if ( isset($rum_sst_plugin_option_array[ 'left_right' ] ) ) {
+		$rum_sst_left_right			= $rum_sst_plugin_option_array[ 'left_right' ];
+	} else {
+		$rum_sst_left_right			= 'left';
+	}
+
 
 ?>
 
