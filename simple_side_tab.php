@@ -398,16 +398,13 @@ function rum_sst_custom_css_hook() {
 	$rum_sst_plugin_option_array	= get_option( 'rum_sst_plugin_options' );
 
 	// fetch individual values from the plugin option variable array
-	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
 	$rum_sst_font_family			= $rum_sst_plugin_option_array[ 'font_family' ];
 	$rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
 	$rum_sst_text_shadow			= $rum_sst_plugin_option_array[ 'text_shadow' ];
-	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
 	$rum_sst_pixels_from_top		= $rum_sst_plugin_option_array[ 'pixels_from_top' ];
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
 	$rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
-	$rum_sst_left_right				= $rum_sst_plugin_option_array[ 'left_right' ];
 
 ?>
 
