@@ -134,13 +134,19 @@ function rum_sst_body_tag_html() {
 	// fetch individual values from the plugin option variable array
 	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
 	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
-	$rum_sst_left_right				= $rum_sst_plugin_option_array[ 'left_right' ];
 
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
 		$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
 	} else {
 		$rum_sst_target_blank			= '0';
+	}
+
+	// this field was added after the initial release so it may not be set
+	if ( isset($rum_sst_plugin_option_array[ 'left_right' ] ) ) {
+		$rum_sst_left_right			= $rum_sst_plugin_option_array[ 'left_right' ];
+	} else {
+		$rum_sst_left_right			= 'left';
 	}
 
 	// set the page target
