@@ -309,12 +309,6 @@ function rum_sst_options_page() {
 
 
 		<tr valign="top">
-		<th scope="row"><label for="rum_sst_pixels_from_top">Position from top (px)</label></th>
-		<td><input maxlength="4" size="4" type="text" name="rum_sst_plugin_options[pixels_from_top]" value="<?php echo sanitize_text_field( $rum_sst_pixels_from_top ); ?>" /></td>
-		</tr>
-		
-		
-		<tr valign="top">
 		<th scope="row"><label for="rum_sst_left_right">Show tab on left or right</label></th>
 		<td>
 			<input name="rum_sst_plugin_options[left_right]" type="radio" value="left" <?php checked( 'left', $rum_sst_left_right ); ?> /> Left <br />
@@ -322,6 +316,12 @@ function rum_sst_options_page() {
 		</td>
 		</tr>
 
+
+		<tr valign="top">
+		<th scope="row"><label for="rum_sst_pixels_from_top">Position from top (px)</label></th>
+		<td><input maxlength="4" size="4" type="text" name="rum_sst_plugin_options[pixels_from_top]" value="<?php echo sanitize_text_field( $rum_sst_pixels_from_top ); ?>" /></td>
+		</tr>		
+		
 	</table>
 
 <BR>
