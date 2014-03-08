@@ -65,7 +65,7 @@ No. We want to keep it simple so we are only supporting one tab. More than one t
 
 == Changelog ==
 
-= 1.0.3 =
+= 1.1.0 =
 * FEATURE: option for left or right location for the tab
 * fix IE8 display issue. made conditional statement for IE8 and IE7
 
