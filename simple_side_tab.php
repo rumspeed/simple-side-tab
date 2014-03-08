@@ -9,7 +9,7 @@ Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2
 */
 
-/*  Copyright 2013  Scot Rumery (email : scot@rumspeed.com)
+/*  Copyright 2014  Scot Rumery (email : scot@rumspeed.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
