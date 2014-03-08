@@ -3,8 +3,8 @@ Contributors: srumery, idowning
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RYGE4PYK68H54
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 1.0.2
+Tested up to: 3.8.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Display a side tab that you can easily link to any page. Customize the tab text,
 
 == Description ==
 
-Add a "Global Call To Action" on your website. Simple Side Tab adds a vertical tab to the left side of the browser window that links to any page. The tab stays in place as your visitor scrolls down the page so it's always visible and ready for action. Works great on Mobile too.
+Add a "Global Call To Action" on your website. Simple Side Tab adds a vertical tab to the left or right side of the browser window that links to any page. The tab stays in place as your visitor scrolls down the page so it's always visible and ready for action. Works great on Mobile too.
 
 Need an effective way to highlight a conversion page? This plugin will help.
 
@@ -51,7 +51,12 @@ No. The tab is built with CSS. That way, you can customize the tab text, fonts a
 
 = Can I get the tab to work on the right side of the browser? =
 
-No. It currently only works on the left. An upcoming release will work on both sides.
+Yes. Now it works on both sides.
+
+= Can you setup multiple tabs with this plugin? =
+
+No. We want to keep it simple so we are only supporting one tab. More than one tab would complicate this plugin quite a bit. Besides, two tabs doesn't look that great on mobile. If you need more than one tab, this plugin is not for you.
+
 
 == Screenshots ==
 
@@ -60,7 +65,7 @@ No. It currently only works on the left. An upcoming release will work on both s
 
 == Changelog ==
 
-= 1.0.2 =
+= 1.0.3 =
 * FEATURE: option for left or right location for the tab
 * fix IE8 display issue. made conditional statement for IE8 and IE7
 
