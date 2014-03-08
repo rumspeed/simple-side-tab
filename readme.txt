@@ -17,9 +17,8 @@ Add a "Global Call To Action" on your website. Simple Side Tab adds a vertical t
 Need an effective way to highlight a conversion page? This plugin will help.
 
 
-= New features =
-* the tab is no longer displayed on the page it links to
-* added an option to "Open link in new window"
+= New feature =
+* FEATURE: option for left or right location for the tab
 
 
 It's easy to use and simple to set up. From one simple settings screen, you can:
@@ -27,6 +26,7 @@ It's easy to use and simple to set up. From one simple settings screen, you can:
 * Set the text for the tab
 * Choose fonts - includes 7 standard screen fonts
 * Set the URL your tab links to, internal or external
+* Assign the tab to the left or right side of browser window
 * Change vertical position of your tab
 * Unlimited colors for tab elements
 * All CSS, no graphics
