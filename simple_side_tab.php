@@ -165,7 +165,7 @@ function rum_sst_body_tag_html() {
 	{
 	    // if IE 7 or 8
 	    // Write HTML to render tab
-		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '></a>';
+		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</a>';
 	}
 	else
 	{
