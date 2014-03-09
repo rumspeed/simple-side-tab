@@ -18,7 +18,7 @@ Need an effective way to highlight a conversion page? This plugin will help.
 
 
 = New feature =
-* option for left or right location for the tab
+* Option for left or right location for the tab
 
 
 It's easy to use and simple to set up. From one simple settings screen, you can:
