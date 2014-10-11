@@ -152,6 +152,8 @@ function rum_sst_body_tag_html() {
 	// set the page target
 	if ($rum_sst_target_blank == '1') {
 		$rum_sst_target_blank = ' target="_blank"';
+	} else {
+		$rum_sst_target_blank = '';
 	}
 	
 	// set side of page for tab
