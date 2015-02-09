@@ -3,7 +3,7 @@
 Plugin Name: Simple Side Tab
 Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 1.1.1
+Version: 1.1.2
 Author: Scot Rumery
 Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2

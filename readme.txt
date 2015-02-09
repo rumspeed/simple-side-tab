@@ -1,10 +1,10 @@
 === Simple Side Tab ===
-Contributors: srumery, idowning
+Contributors: srumery
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RYGE4PYK68H54
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag: 1.1.1
+Tested up to: 4.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,9 @@ No. We want to keep it simple so we are only supporting one tab. More than one t
 1. Simple Side Tab is action based on option settings.
 
 == Changelog ==
+
+= 1.1.2 =
+* Tested up to: 4.1
 
 = 1.1.1 =
 * Tested up to: 4.0
