@@ -132,8 +132,20 @@ function rum_sst_body_tag_html() {
 	$rum_sst_plugin_option_array	= get_option( 'rum_sst_plugin_options' );
 
 	// fetch individual values from the plugin option variable array
+	if ( isset($rum_sst_plugin_option_array[ 'tab_url' ] ) ) {
+		$page = get_page_by_title( $rum_sst_plugin_option_array[ 'tab_url' ] );
+		if ( $page!== NULL ) {
+			$rum_sst_tab_url	= get_the_permalink( $page->ID );	
+		}else{
+			$rum_sst_tab_url	= $rum_sst_plugin_option_array[ 'tab_url' ];	
+		}
+		
+	} else {
+		$rum_sst_tab_url			= '0';
+	}
+	
 	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
-	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
+
 
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
