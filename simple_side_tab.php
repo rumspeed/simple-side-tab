@@ -401,7 +401,6 @@ function rum_sst_custom_css_hook() {
 
 	// fetch individual values from the plugin option variable array
 	$rum_sst_font_family			= $rum_sst_plugin_option_array[ 'font_family' ];
-	$rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
 	$rum_sst_pixels_from_top		= $rum_sst_plugin_option_array[ 'pixels_from_top' ];
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
@@ -414,6 +413,13 @@ function rum_sst_custom_css_hook() {
 		$rum_sst_text_shadow			= 'none';
 	}
 
+
+	// set a default value if the option is not set
+	if ( isset($rum_sst_plugin_option_array[ 'font_weight_bold' ] ) ) {
+		$rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
+	} else {
+		$rum_sst_font_weight_bold		= 0;
+	}
 ?>
 
 <style type='text/css'>
