@@ -65,6 +65,9 @@ No. We want to keep it simple so we are only supporting one tab. More than one t
 
 == Changelog ==
 
+= 1.2.0 =
+* FIX: Undefined index: text_shadow - on line 405
+
 = 1.1.2 =
 * Tested up to: 4.1
 
