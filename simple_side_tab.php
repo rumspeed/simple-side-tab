@@ -410,7 +410,7 @@ function rum_sst_custom_css_hook() {
 	if ( isset($rum_sst_plugin_option_array[ 'text_shadow' ] ) ) {
 		$rum_sst_text_shadow			= $rum_sst_plugin_option_array[ 'text_shadow' ];
 	} else {
-		$rum_sst_text_shadow			= 'none';
+		$rum_sst_text_shadow			= 0;
 	}
 
 
