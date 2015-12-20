@@ -440,7 +440,7 @@ function rum_sst_custom_css_hook() {
 #rum_sst_tab:hover {
 	background-color: <?php echo $rum_sst_hover_color; ?>;
 	<?php
-	if ( $rum_sst_text_shadow =='1' ) {
+	if ( $rum_sst_text_shadow == '1' ) {
 	  echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
 	  echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
 	  echo '	box-shadow:         -3px 3px 5px 2px #ccc;' . "\n";
@@ -458,7 +458,7 @@ function rum_sst_custom_css_hook() {
 	text-align:center;
 	font-size:15px;
 	<?php
-	if ( $rum_sst_font_weight_bold =='1' ) :
+	if ( $rum_sst_font_weight_bold == '1' ) :
 	  echo 'font-weight:bold;' . "\n";
 	else :
 	  echo 'font-weight:normal;' . "\n";
