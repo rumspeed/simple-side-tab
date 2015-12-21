@@ -100,11 +100,17 @@ if ( is_admin() ){ // admin actions and filters
 // get the complete url for the current page
 function rum_get_full_url()
 {
-	$s 			= empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
-	$sp 		= strtolower($_SERVER["SERVER_PROTOCOL"]);
-	$protocol 	= substr($sp, 0, strpos($sp, "/")) . $s;
-	$port 		= ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
-	return $protocol . "://" . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
+
+	// wrap contents within isset(); these variables are not available when using WP-CLI
+	// GitHub issue: https://github.com/rumspeed/simple-side-tab/issues/10
+	// WP Repo support: https://wordpress.org/support/topic/php-notices-undefined-index-server_port-and-server_name?replies=1#post-7623551
+	if(isset($_SERVER["SERVER_NAME"])) {
+		$s 			= empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+		$sp 		= strtolower($_SERVER["SERVER_PROTOCOL"]);
+		$protocol 	= substr($sp, 0, strpos($sp, "/")) . $s;
+		$port 		= ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
+		return $protocol . "://" . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
+	}
 }
 
 
