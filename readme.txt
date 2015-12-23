@@ -69,6 +69,7 @@ No. We want to keep it simple so we are only supporting one tab. More than one t
 * Tested up to: 4.4
 * FIX: Undefined index: text_shadow - on line 405
 * FIX: PHP notices: Undefined index SERVER_PORT and SERVER_NAME when using WP_CLI
+* FIX: Tab URL with HTTPS was still showing on target page when it shouldn't
 
 = 1.1.2 =
 * Tested up to: 4.1
