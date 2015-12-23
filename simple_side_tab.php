@@ -319,8 +319,8 @@ function rum_sst_options_page() {
 		<tr valign="top">
 		<th scope="row"><label for="rum_sst_left_right">Show tab on left or right</label></th>
 		<td>
-			<input name="rum_sst_plugin_options[left_right]" type="radio" value="left" <?php checked( 'left', $rum_sst_left_right ); ?> /> Left <br />
-			<input name="rum_sst_plugin_options[left_right]" type="radio" value="right" <?php checked( 'right', $rum_sst_left_right ); ?> /> Right		
+			<input name="rum_sst_plugin_options[left_right]" type="radio" value="left" <?php checked( 'left', $rum_sst_left_right ); ?> /> Left
+			<input name="rum_sst_plugin_options[left_right]" type="radio" value="right" <?php checked( 'right', $rum_sst_left_right ); ?> /> Right
 		</td>
 		</tr>
 
