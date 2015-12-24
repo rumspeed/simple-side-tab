@@ -411,6 +411,8 @@ function rum_sst_custom_css_hook() {
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
 	$rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
+	$rum_sst_left_right				= $rum_sst_plugin_option_array[ 'left_right' ];
+
 
 	// set a default value if the option is not set
 	if ( isset($rum_sst_plugin_option_array[ 'text_shadow' ] ) ) {
@@ -437,19 +439,24 @@ function rum_sst_custom_css_hook() {
 	color:<?php echo $rum_sst_text_color; ?>;
 	border-style:solid;
 	border-width:0px;
-	-moz-border-radius-bottomright:10px;
-	border-bottom-right-radius:10px;
-	-moz-border-radius-bottomleft:10px;
-	border-bottom-left-radius:10px;
 }
 
 #rum_sst_tab:hover {
 	background-color: <?php echo $rum_sst_hover_color; ?>;
 	<?php
 	if ( $rum_sst_text_shadow == '1' ) {
-	  echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
-	  echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
-	  echo '	box-shadow:         -3px 3px 5px 2px #ccc;' . "\n";
+
+		if ( $rum_sst_left_right == 'left' ) {
+
+		  echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
+		  echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
+		  echo '	box-shadow:         -3px 3px 5px 2px #ccc;' . "\n";
+		} else {
+
+		  echo '	-moz-box-shadow:    -3px -3px 5px 2px #ccc;' . "\n";
+		  echo '	-webkit-box-shadow: -3px -3px 5px 2px #ccc;' . "\n";
+		  echo '	box-shadow:         -3px -3px 5px 2px #ccc;' . "\n";			
+		}
 	}
 ?>
 
@@ -487,20 +494,28 @@ function rum_sst_custom_css_hook() {
 	-ms-transform:rotate(270deg);
 	-o-transform:rotate(270deg);
 	transform:rotate(270deg);
+	-moz-border-radius-bottomright:10px;
+	border-bottom-right-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	border-bottom-left-radius:10px;
 }
 
 .rum_sst_right {
-	right:-156px;
+   	right:-1px;
 	cursor: pointer;
-	-webkit-transform-origin:0 0;
-	-moz-transform-origin:0 0;
-	-o-transform-origin:0 0;
-	-ms-transform-origin:0 0;
-	-webkit-transform:rotate(90deg);
-	-moz-transform:rotate(90deg);
-	-ms-transform:rotate(90deg);
-	-o-transform:rotate(90deg);
-	transform:rotate(90deg);
+	-webkit-transform-origin:100% 100%;
+	-moz-transform-origin:100% 100%;
+	-o-transform-origin:100% 100%;
+	-ms-transform-origin:100% 100%;
+	-webkit-transform:rotate(-90deg);
+	-moz-transform:rotate(-90deg);
+	-ms-transform:rotate(-90deg);
+	-o-transform:rotate(-90deg);
+	transform:rotate(-90deg);
+	-moz-border-radius-topright:10px;
+	border-top-right-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
 }
 
 .rum_sst_right.less-ie-9 {
