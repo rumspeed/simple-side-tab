@@ -18,7 +18,7 @@ Need an effective way to highlight a conversion page? This plugin will help.
 
 
 = New feature =
-* Option for left or right location for the tab
+* Filter added to modify output of tab text (see FAQ)
 
 
 It's easy to use and simple to set up. From one simple settings screen, you can:
@@ -56,6 +56,20 @@ Yes. Now it works on both sides.
 = Can you setup multiple tabs with this plugin? =
 
 No. We want to keep it simple so we are only supporting one tab. More than one tab would complicate this plugin quite a bit. Besides, two tabs doesn't look that great on mobile. If you need more than one tab, this plugin is not for you.
+
+= How can I conditionally change the tab text or the URL? =
+
+You can use the `rum_sst_plugin_text_for_tab` filter to modify the output of the tab. Here are some examples:
+
+Add a Font Awesome Icon to the front of the tab text (assuming Font Awesome is supported with your theme)
+<pre><code>// filter the tab output from the Simple Side Tab plugin
+function rum_filter_simple_side_tab_text( $text ) {
+
+	$text = &#039;&lt;i class="fa fa-life-ring"&gt;&lt;/i&gt; &#039; . $text;
+
+	return $text;
+}
+add_filter( &#039;rum_sst_plugin_text_for_tab&#039;, &#039;rum_filter_simple_side_tab_text&#039;, 10 , 1 ); </code></pre>
 
 
 == Screenshots ==
