@@ -61,22 +61,36 @@ function rum_sst_activate_plugin() {
 
 
 
-// Fire off hooks depending on if the admin settings page is used or the public website
-if ( is_admin() ){ // admin actions and filters
+// Fire off hooks in the admin
+function rum_sst_admin_settings() {
 
-	// Hook for adding admin menu
-	add_action( 'admin_menu', 'rum_sst_admin_menu' );
+	if ( is_admin() ){ // admin actions and filters
 
-	// Hook for registering plugin option settings
-	add_action( 'admin_init', 'rum_sst_settings_api_init');
+		// Hook for adding admin menu
+		add_action( 'admin_menu', 'rum_sst_admin_menu' );
 
-	// Hook to fire farbtastic includes for using built in WordPress color picker functionality
-	add_action('admin_enqueue_scripts', 'rum_sst_farbtastic_script');
+		// Hook for registering plugin option settings
+		add_action( 'admin_init', 'rum_sst_settings_api_init');
 
-	// Display the 'Settings' link in the plugin row on the installed plugins list page
-	add_filter( 'plugin_action_links_'.plugin_basename(__FILE__), 'rum_sst_admin_plugin_actions', -10);
+		// Hook to fire farbtastic includes for using built in WordPress color picker functionality
+		add_action('admin_enqueue_scripts', 'rum_sst_farbtastic_script');
 
-} else { // non-admin enqueues, actions, and filters
+		// Display the 'Settings' link in the plugin row on the installed plugins list page
+		add_filter( 'plugin_action_links_'.plugin_basename(__FILE__), 'rum_sst_admin_plugin_actions', -10);
+
+	}
+}
+add_action( 'init', 'rum_sst_admin_settings' );
+
+
+
+
+// non-admin enqueues, actions, and filters (public display of the tab)
+function rum_sst_display_tab() {
+
+	if ( is_admin() ) { // return without running if we are in the admin
+		return;
+	}
 
 
 	// get the current page url
@@ -98,6 +112,7 @@ if ( is_admin() ){ // admin actions and filters
 		add_action( 'wp_footer', 'rum_sst_body_tag_html' );
 	}
 }
+add_action( 'wp', 'rum_sst_display_tab' );
 
 
 
