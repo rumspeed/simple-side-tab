@@ -84,7 +84,7 @@ add_filter( &#039;rum_sst_plugin_text_for_tab&#039;, &#039;rum_filter_simple_sid
 == Changelog ==
 
 = 1.2.0 =
-NEW: add filter to modify output of tab text
+* NEW: add filter to modify output of tab text
 
 = 1.1.3 =
 * Tested up to: 4.4
