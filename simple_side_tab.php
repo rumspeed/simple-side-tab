@@ -93,6 +93,21 @@ function rum_sst_display_tab() {
 	}
 
 
+	// set the value for the tab display to true
+	// this can only be changed by the 'rum_sst_plugin_display_tab' filter)
+	$rum_sst_display_tab = true;
+
+
+	// apply filter for the display of the tab so it can be turned on and off conditionally
+	$rum_sst_display_tab = apply_filters( 'rum_sst_plugin_display_tab', $rum_sst_display_tab );
+
+
+	// do not display the tab if the value has been turned off
+	if ( $rum_sst_display_tab == false ) {
+		return;
+	}
+
+
 	// get the current page url
 	$rum_current_page_url 			= rum_get_full_url();
 
