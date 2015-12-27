@@ -19,6 +19,7 @@ Need an effective way to highlight a conversion page? This plugin will help.
 
 = New feature =
 * Filter added to modify output of tab text (see FAQ)
+* Filter added so the tab display can be turned on and off conditionally (see FAQ)
 
 
 It's easy to use and simple to set up. From one simple settings screen, you can:
@@ -75,6 +76,19 @@ function rum_filter_simple_side_tab_text( $text ) {
 }
 add_filter( &#039;rum_sst_plugin_text_for_tab&#039;, &#039;rum_filter_simple_side_tab_text&#039;, 10 , 1 ); </code></pre>
 
+Contidionally turn off the tab on the homepage
+<pre><code>// filter the tab display value to conditionally turn off the tab
+function rum_filter_simple_side_tab_display( $display ) {
+
+	if ( is_front_page() ) {
+
+		$display = false;
+	}
+
+	return $display;
+}
+add_filter( &#039;rum_sst_plugin_display_tab&#039;, &#039;rum_filter_simple_side_tab_display&#039;, 10 , 1 );</code></pre>
+
 
 == Screenshots ==
 
@@ -84,7 +98,8 @@ add_filter( &#039;rum_sst_plugin_text_for_tab&#039;, &#039;rum_filter_simple_sid
 == Changelog ==
 
 = 1.2.0 =
-* NEW: add filter to modify output of tab text
+* NEW: filter added to modify output of tab text
+* NEW: filter added so the tab display can be turned on and off conditionally
 
 = 1.1.3 =
 * Tested up to: 4.4
