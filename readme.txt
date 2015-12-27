@@ -65,6 +65,9 @@ No. We want to keep it simple so we are only supporting one tab. More than one t
 
 == Changelog ==
 
+= 1.2.0 =
+NEW: add filter to modify output of tab text
+
 = 1.1.3 =
 * Tested up to: 4.4
 * FIX: Undefined index: text_shadow - on line 405

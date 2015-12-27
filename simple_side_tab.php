@@ -146,6 +146,10 @@ function rum_sst_body_tag_html() {
 	$rum_sst_text_for_tab = esc_html( $rum_sst_text_for_tab );
 
 
+	// apply filters for the tab text
+	$rum_sst_text_for_tab = apply_filters( 'rum_sst_plugin_text_for_tab', $rum_sst_text_for_tab );
+
+
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
 		$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
