@@ -28,8 +28,10 @@ License: GPLv2
 
 
 
+
 // Hook will fire upon activation - we are using it to set default option values
 register_activation_hook( __FILE__, 'rum_sst_activate_plugin' );
+
 
 
 
@@ -55,6 +57,8 @@ function rum_sst_activate_plugin() {
 	add_option( 'rum_sst_plugin_options', $rum_sst_plugin_options );
 
 }
+
+
 
 
 // Fire off hooks depending on if the admin settings page is used or the public website
@@ -97,9 +101,9 @@ if ( is_admin() ){ // admin actions and filters
 
 
 
+
 // get the complete url for the current page
-function rum_get_full_url()
-{
+function rum_get_full_url() {
 
 	// wrap contents within isset(); these variables are not available when using WP-CLI
 	// GitHub issue: https://github.com/rumspeed/simple-side-tab/issues/10
@@ -115,6 +119,7 @@ function rum_get_full_url()
 
 
 
+
 // Include WordPress color picker functionality
 function rum_sst_farbtastic_script($hook) {
 
@@ -126,8 +131,8 @@ function rum_sst_farbtastic_script($hook) {
 	// load the style and script for farbtastic
 	wp_enqueue_style( 'farbtastic' );
 	wp_enqueue_script( 'farbtastic' );
-
 }
+
 
 
 
@@ -157,12 +162,14 @@ function rum_sst_body_tag_html() {
 		$rum_sst_target_blank			= '0';
 	}
 
+
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'left_right' ] ) ) {
 		$rum_sst_left_right			= $rum_sst_plugin_option_array[ 'left_right' ];
 	} else {
 		$rum_sst_left_right			= 'left';
 	}
+
 
 	// set the page target
 	if ($rum_sst_target_blank == '1') {
@@ -171,27 +178,28 @@ function rum_sst_body_tag_html() {
 		$rum_sst_target_blank = '';
 	}
 	
+
 	// set side of page for tab
 	if ($rum_sst_left_right == 'right') {
 		$rum_sst_left_right_location = 'rum_sst_right';
-	}else {
+	} else {
 		$rum_sst_left_right_location = 'rum_sst_left';
 	}
 	
-	if(preg_match('/(?i)msie [7-8]/',$_SERVER['HTTP_USER_AGENT']))
-	{
+
+	if(preg_match('/(?i)msie [7-8]/',$_SERVER['HTTP_USER_AGENT'])) {
+
 	    // if IE 7 or 8
 	    // Write HTML to render tab
 		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</div></a>';
-	}
-	else
-	{
+	} else {
+
 	   // if IE>8
 	   // Write HTML to render tab
 	   echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . ' id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</a>';
 	}
-	
 }
+
 
 
 
@@ -201,6 +209,8 @@ function rum_sst_admin_menu() {
 	// Add a new submenu under Settings
 	add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', 'rum_sst_options_page' );
 }
+
+
 
 
 // Display and fill the form fields for the plugin admin page
@@ -389,12 +399,13 @@ function rum_sst_options_page() {
 
 
 
+
 // Use Settings API to whitelist options
 function rum_sst_settings_api_init() {
 
 	register_setting( 'rum_sst_option_group', 'rum_sst_plugin_options' );
-
 }
+
 
 
 
@@ -403,8 +414,8 @@ function rum_sst_admin_plugin_actions($links) {
 
 	$links[] = '<a href="options-general.php?page=rum_simple_side_tab">'.__('Settings').'</a>';
 	return $links;
-
 }
+
 
 
 
