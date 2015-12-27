@@ -141,6 +141,11 @@ function rum_sst_body_tag_html() {
 	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
 	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
 
+
+	// sanatize the output string
+	$rum_sst_text_for_tab = esc_html( $rum_sst_text_for_tab );
+
+
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
 		$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
@@ -173,13 +178,13 @@ function rum_sst_body_tag_html() {
 	{
 	    // if IE 7 or 8
 	    // Write HTML to render tab
-		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
+		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</div></a>';
 	}
 	else
 	{
 	   // if IE>8
 	   // Write HTML to render tab
-	   echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . ' id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</a>';
+	   echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . ' id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</a>';
 	}
 	
 }
