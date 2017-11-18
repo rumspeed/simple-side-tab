@@ -2,9 +2,9 @@
 Contributors: srumery
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RYGE4PYK68H54
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
-Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 1.1.2
+Requires at least: 4.6
+Tested up to: 4.9
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,8 @@ Need an effective way to highlight a conversion page? This plugin will help.
 
 
 = New feature =
-* Option for left or right location for the tab
+* Filter added to modify output of tab text (see FAQ)
+* Filter added so the tab display can be turned on and off conditionally (see FAQ)
 
 
 It's easy to use and simple to set up. From one simple settings screen, you can:
@@ -30,6 +31,10 @@ It's easy to use and simple to set up. From one simple settings screen, you can:
 * Change vertical position of your tab
 * Unlimited colors for tab elements
 * All CSS, no graphics
+
+= Development =
+<a href="https://github.com/rumspeed/simple-side-tab" title="Simple Side Tab on GitHub">https://github.com/rumspeed/simple-side-tab</a></p>
+
 
 == Installation ==
 
@@ -57,6 +62,33 @@ Yes. Now it works on both sides.
 
 No. We want to keep it simple so we are only supporting one tab. More than one tab would complicate this plugin quite a bit. Besides, two tabs doesn't look that great on mobile. If you need more than one tab, this plugin is not for you.
 
+= How can I conditionally change the tab text or the URL? =
+
+You can use the `rum_sst_plugin_text_for_tab` filter to modify the output of the tab. Here are some examples:
+
+Add a Font Awesome Icon to the front of the tab text (assuming Font Awesome is supported with your theme)
+<pre><code>// filter the tab output from the Simple Side Tab plugin
+function rum_filter_simple_side_tab_text( $text ) {
+
+	$text = &#039;&lt;i class="fa fa-life-ring"&gt;&lt;/i&gt; &#039; . $text;
+
+	return $text;
+}
+add_filter( &#039;rum_sst_plugin_text_for_tab&#039;, &#039;rum_filter_simple_side_tab_text&#039;, 10 , 1 ); </code></pre>
+
+Contidionally turn off the tab on the homepage
+<pre><code>// filter the tab display value to conditionally turn off the tab
+function rum_filter_simple_side_tab_display( $display ) {
+
+	if ( is_front_page() ) {
+
+		$display = false;
+	}
+
+	return $display;
+}
+add_filter( &#039;rum_sst_plugin_display_tab&#039;, &#039;rum_filter_simple_side_tab_display&#039;, 10 , 1 );</code></pre>
+
 
 == Screenshots ==
 
@@ -64,6 +96,20 @@ No. We want to keep it simple so we are only supporting one tab. More than one t
 1. Simple Side Tab is action based on option settings.
 
 == Changelog ==
+
+= 1.2.1 =
+* FIX: Undefined index: 'text_shadow' and 'font_weight_bold' - when on the settings page
+
+= 1.2.0 =
+* NEW: filter added to modify output of tab text
+* NEW: filter added so the tab display can be turned on and off conditionally
+
+= 1.1.3 =
+* Tested up to: 4.4
+* FIX: Undefined index: text_shadow - on line 405
+* FIX: Right tab not showing in some cases due to length of text in tab
+* FIX: PHP notices: Undefined index SERVER_PORT and SERVER_NAME when using WP_CLI
+* FIX: Tab URL with HTTPS was still showing on target page when it shouldn't
 
 = 1.1.2 =
 * Tested up to: 4.1

@@ -3,13 +3,13 @@
 Plugin Name: Simple Side Tab
 Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 1.1.2
+Version: 1.2.1
 Author: Scot Rumery
 Author URI: http://rumspeed.com/scot-rumery/
 License: GPLv2
 */
 
-/*  Copyright 2014  Scot Rumery (email : scot@rumspeed.com)
+/*  Copyright 2016  Scot Rumery (email : scot@rumspeed.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -28,8 +28,10 @@ License: GPLv2
 
 
 
+
 // Hook will fire upon activation - we are using it to set default option values
 register_activation_hook( __FILE__, 'rum_sst_activate_plugin' );
+
 
 
 
@@ -57,22 +59,53 @@ function rum_sst_activate_plugin() {
 }
 
 
-// Fire off hooks depending on if the admin settings page is used or the public website
-if ( is_admin() ){ // admin actions and filters
 
-	// Hook for adding admin menu
-	add_action( 'admin_menu', 'rum_sst_admin_menu' );
 
-	// Hook for registering plugin option settings
-	add_action( 'admin_init', 'rum_sst_settings_api_init');
+// Fire off hooks in the admin
+function rum_sst_admin_settings() {
 
-	// Hook to fire farbtastic includes for using built in WordPress color picker functionality
-	add_action('admin_enqueue_scripts', 'rum_sst_farbtastic_script');
+	if ( is_admin() ){ // admin actions and filters
 
-	// Display the 'Settings' link in the plugin row on the installed plugins list page
-	add_filter( 'plugin_action_links_'.plugin_basename(__FILE__), 'rum_sst_admin_plugin_actions', -10);
+		// Hook for adding admin menu
+		add_action( 'admin_menu', 'rum_sst_admin_menu' );
 
-} else { // non-admin enqueues, actions, and filters
+		// Hook for registering plugin option settings
+		add_action( 'admin_init', 'rum_sst_settings_api_init');
+
+		// Hook to fire farbtastic includes for using built in WordPress color picker functionality
+		add_action('admin_enqueue_scripts', 'rum_sst_farbtastic_script');
+
+		// Display the 'Settings' link in the plugin row on the installed plugins list page
+		add_filter( 'plugin_action_links_'.plugin_basename(__FILE__), 'rum_sst_admin_plugin_actions', -10);
+
+	}
+}
+add_action( 'init', 'rum_sst_admin_settings' );
+
+
+
+
+// non-admin enqueues, actions, and filters (public display of the tab)
+function rum_sst_display_tab() {
+
+	if ( is_admin() ) { // return without running if we are in the admin
+		return;
+	}
+
+
+	// set the value for the tab display to true
+	// this can only be changed by the 'rum_sst_plugin_display_tab' filter)
+	$rum_sst_display_tab = true;
+
+
+	// apply filter for the display of the tab so it can be turned on and off conditionally
+	$rum_sst_display_tab = apply_filters( 'rum_sst_plugin_display_tab', $rum_sst_display_tab );
+
+
+	// do not display the tab if the value has been turned off
+	if ( $rum_sst_display_tab == false ) {
+		return;
+	}
 
 
 	// get the current page url
@@ -94,18 +127,26 @@ if ( is_admin() ){ // admin actions and filters
 		add_action( 'wp_footer', 'rum_sst_body_tag_html' );
 	}
 }
+add_action( 'wp', 'rum_sst_display_tab' );
+
 
 
 
 // get the complete url for the current page
-function rum_get_full_url()
-{
-	$s 			= empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
-	$sp 		= strtolower($_SERVER["SERVER_PROTOCOL"]);
-	$protocol 	= substr($sp, 0, strpos($sp, "/")) . $s;
-	$port 		= ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
-	return $protocol . "://" . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
+function rum_get_full_url() {
+
+	// wrap contents within isset(); these variables are not available when using WP-CLI
+	// GitHub issue: https://github.com/rumspeed/simple-side-tab/issues/10
+	// WP Repo support: https://wordpress.org/support/topic/php-notices-undefined-index-server_port-and-server_name?replies=1#post-7623551
+	if(isset($_SERVER["SERVER_NAME"])) {
+		$s 			= empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+		$sp 		= strtolower($_SERVER["SERVER_PROTOCOL"]);
+		$protocol 	= substr($sp, 0, strpos($sp, "/")) . $s;
+
+		return $protocol . "://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+	}
 }
+
 
 
 
@@ -120,8 +161,8 @@ function rum_sst_farbtastic_script($hook) {
 	// load the style and script for farbtastic
 	wp_enqueue_style( 'farbtastic' );
 	wp_enqueue_script( 'farbtastic' );
-
 }
+
 
 
 
@@ -135,12 +176,22 @@ function rum_sst_body_tag_html() {
 	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
 	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
 
+
+	// sanatize the output string
+	$rum_sst_text_for_tab = esc_html( $rum_sst_text_for_tab );
+
+
+	// apply filters for the tab text
+	$rum_sst_text_for_tab = apply_filters( 'rum_sst_plugin_text_for_tab', $rum_sst_text_for_tab );
+
+
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
 		$rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
 	} else {
 		$rum_sst_target_blank			= '0';
 	}
+
 
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'left_right' ] ) ) {
@@ -149,6 +200,7 @@ function rum_sst_body_tag_html() {
 		$rum_sst_left_right			= 'left';
 	}
 
+
 	// set the page target
 	if ($rum_sst_target_blank == '1') {
 		$rum_sst_target_blank = ' target="_blank"';
@@ -156,27 +208,28 @@ function rum_sst_body_tag_html() {
 		$rum_sst_target_blank = '';
 	}
 	
+
 	// set side of page for tab
 	if ($rum_sst_left_right == 'right') {
 		$rum_sst_left_right_location = 'rum_sst_right';
-	}else {
+	} else {
 		$rum_sst_left_right_location = 'rum_sst_left';
 	}
 	
-	if(preg_match('/(?i)msie [7-8]/',$_SERVER['HTTP_USER_AGENT']))
-	{
+
+	if(preg_match('/(?i)msie [7-8]/',$_SERVER['HTTP_USER_AGENT'])) {
+
 	    // if IE 7 or 8
 	    // Write HTML to render tab
-		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</div></a>';
-	}
-	else
-	{
+		echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</div></a>';
+	} else {
+
 	   // if IE>8
 	   // Write HTML to render tab
-	   echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . ' id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . esc_html( $rum_sst_text_for_tab ) . '</a>';
+	   echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . ' id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</a>';
 	}
-	
 }
+
 
 
 
@@ -186,6 +239,8 @@ function rum_sst_admin_menu() {
 	// Add a new submenu under Settings
 	add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', 'rum_sst_options_page' );
 }
+
+
 
 
 // Display and fill the form fields for the plugin admin page
@@ -212,13 +267,28 @@ function rum_sst_options_page() {
 	// fetch individual values from the plugin option variable array
 	$rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
 	$rum_sst_font_family			= $rum_sst_plugin_option_array[ 'font_family' ];
-	$rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
-	$rum_sst_text_shadow			= $rum_sst_plugin_option_array[ 'text_shadow' ];
 	$rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
 	$rum_sst_pixels_from_top		= $rum_sst_plugin_option_array[ 'pixels_from_top' ];
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
 	$rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
+
+
+	// set a default value if the option is not set
+	if ( isset($rum_sst_plugin_option_array[ 'text_shadow' ] ) ) {
+		$rum_sst_text_shadow			= $rum_sst_plugin_option_array[ 'text_shadow' ];
+	} else {
+		$rum_sst_text_shadow			= 0;
+	}
+
+
+	// set a default value if the option is not set
+	if ( isset($rum_sst_plugin_option_array[ 'font_weight_bold' ] ) ) {
+		$rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
+	} else {
+		$rum_sst_font_weight_bold		= 0;
+	}
+
 
 	// this field was added after the initial release so it may not be set
 	if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
@@ -313,8 +383,8 @@ function rum_sst_options_page() {
 		<tr valign="top">
 		<th scope="row"><label for="rum_sst_left_right">Show tab on left or right</label></th>
 		<td>
-			<input name="rum_sst_plugin_options[left_right]" type="radio" value="left" <?php checked( 'left', $rum_sst_left_right ); ?> /> Left <br />
-			<input name="rum_sst_plugin_options[left_right]" type="radio" value="right" <?php checked( 'right', $rum_sst_left_right ); ?> /> Right		
+			<input name="rum_sst_plugin_options[left_right]" type="radio" value="left" <?php checked( 'left', $rum_sst_left_right ); ?> /> Left
+			<input name="rum_sst_plugin_options[left_right]" type="radio" value="right" <?php checked( 'right', $rum_sst_left_right ); ?> /> Right
 		</td>
 		</tr>
 
@@ -374,12 +444,13 @@ function rum_sst_options_page() {
 
 
 
+
 // Use Settings API to whitelist options
 function rum_sst_settings_api_init() {
 
 	register_setting( 'rum_sst_option_group', 'rum_sst_plugin_options' );
-
 }
+
 
 
 
@@ -388,8 +459,8 @@ function rum_sst_admin_plugin_actions($links) {
 
 	$links[] = '<a href="options-general.php?page=rum_simple_side_tab">'.__('Settings').'</a>';
 	return $links;
-
 }
+
 
 
 
@@ -401,13 +472,27 @@ function rum_sst_custom_css_hook() {
 
 	// fetch individual values from the plugin option variable array
 	$rum_sst_font_family			= $rum_sst_plugin_option_array[ 'font_family' ];
-	$rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
-	$rum_sst_text_shadow			= $rum_sst_plugin_option_array[ 'text_shadow' ];
 	$rum_sst_pixels_from_top		= $rum_sst_plugin_option_array[ 'pixels_from_top' ];
 	$rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
 	$rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
 	$rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
+	$rum_sst_left_right				= $rum_sst_plugin_option_array[ 'left_right' ];
 
+
+	// set a default value if the option is not set
+	if ( isset($rum_sst_plugin_option_array[ 'text_shadow' ] ) ) {
+		$rum_sst_text_shadow			= $rum_sst_plugin_option_array[ 'text_shadow' ];
+	} else {
+		$rum_sst_text_shadow			= 0;
+	}
+
+
+	// set a default value if the option is not set
+	if ( isset($rum_sst_plugin_option_array[ 'font_weight_bold' ] ) ) {
+		$rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
+	} else {
+		$rum_sst_font_weight_bold		= 0;
+	}
 ?>
 
 <style type='text/css'>
@@ -419,19 +504,24 @@ function rum_sst_custom_css_hook() {
 	color:<?php echo $rum_sst_text_color; ?>;
 	border-style:solid;
 	border-width:0px;
-	-moz-border-radius-bottomright:10px;
-	border-bottom-right-radius:10px;
-	-moz-border-radius-bottomleft:10px;
-	border-bottom-left-radius:10px;
 }
 
 #rum_sst_tab:hover {
 	background-color: <?php echo $rum_sst_hover_color; ?>;
 	<?php
-	if ( $rum_sst_text_shadow =='1' ) {
-	  echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
-	  echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
-	  echo '	box-shadow:         -3px 3px 5px 2px #ccc;' . "\n";
+	if ( $rum_sst_text_shadow == '1' ) {
+
+		if ( $rum_sst_left_right == 'left' ) {
+
+		  echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
+		  echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
+		  echo '	box-shadow:         -3px 3px 5px 2px #ccc;' . "\n";
+		} else {
+
+		  echo '	-moz-box-shadow:    -3px -3px 5px 2px #ccc;' . "\n";
+		  echo '	-webkit-box-shadow: -3px -3px 5px 2px #ccc;' . "\n";
+		  echo '	box-shadow:         -3px -3px 5px 2px #ccc;' . "\n";			
+		}
 	}
 ?>
 
@@ -446,7 +536,7 @@ function rum_sst_custom_css_hook() {
 	text-align:center;
 	font-size:15px;
 	<?php
-	if ( $rum_sst_font_weight_bold =='1' ) :
+	if ( $rum_sst_font_weight_bold == '1' ) :
 	  echo 'font-weight:bold;' . "\n";
 	else :
 	  echo 'font-weight:normal;' . "\n";
@@ -469,20 +559,28 @@ function rum_sst_custom_css_hook() {
 	-ms-transform:rotate(270deg);
 	-o-transform:rotate(270deg);
 	transform:rotate(270deg);
+	-moz-border-radius-bottomright:10px;
+	border-bottom-right-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	border-bottom-left-radius:10px;
 }
 
 .rum_sst_right {
-	right:-156px;
+   	right:-1px;
 	cursor: pointer;
-	-webkit-transform-origin:0 0;
-	-moz-transform-origin:0 0;
-	-o-transform-origin:0 0;
-	-ms-transform-origin:0 0;
-	-webkit-transform:rotate(90deg);
-	-moz-transform:rotate(90deg);
-	-ms-transform:rotate(90deg);
-	-o-transform:rotate(90deg);
-	transform:rotate(90deg);
+	-webkit-transform-origin:100% 100%;
+	-moz-transform-origin:100% 100%;
+	-o-transform-origin:100% 100%;
+	-ms-transform-origin:100% 100%;
+	-webkit-transform:rotate(-90deg);
+	-moz-transform:rotate(-90deg);
+	-ms-transform:rotate(-90deg);
+	-o-transform:rotate(-90deg);
+	transform:rotate(-90deg);
+	-moz-border-radius-topright:10px;
+	border-top-right-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
 }
 
 .rum_sst_right.less-ie-9 {
