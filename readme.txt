@@ -97,6 +97,9 @@ add_filter( &#039;rum_sst_plugin_display_tab&#039;, &#039;rum_filter_simple_side
 
 == Changelog ==
 
+= 1.2.1 =
+* FIX: Undefined index: 'text_shadow' and 'font_weight_bold' - when on the settings page
+
 = 1.2.0 =
 * NEW: filter added to modify output of tab text
 * NEW: filter added so the tab display can be turned on and off conditionally
