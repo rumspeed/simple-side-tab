@@ -2,9 +2,9 @@
 Contributors: srumery
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RYGE4PYK68H54
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
-Requires at least: 3.0
-Tested up to: 4.4
-Stable tag: 1.2.0
+Requires at least: 4.6
+Tested up to: 4.9
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
