@@ -92,8 +92,8 @@ add_filter( &#039;rum_sst_plugin_display_tab&#039;, &#039;rum_filter_simple_side
 
 == Screenshots ==
 
-1. Simple Side Tab options page.
-1. Simple Side Tab is action based on option settings.
+1. Simple Side Tab options page
+1. Simple Side Tab is action based on option settings
 
 == Changelog ==
 
