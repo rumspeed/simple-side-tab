@@ -234,7 +234,6 @@ function rum_sst_options_page() {
 ?>
 
 	<div class="wrap">
-	<?php screen_icon( 'plugins' ); ?>
 	<h2>Simple Side Tab</h2>
 	<p>Simple Side Tab was created to give you an easy option for adding a linkable tab to the side of your WordPress website. Use it to link to your contact/support/feedback page or use it to drive traffic to a new product you just released. It's quick and easy. <em>NOTE: This plugin requires the WP_footer() hook to be fired from your theme.</em></p>
 	<form method="post" action="options.php">
