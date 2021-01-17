@@ -1,0 +1,21 @@
+# A set of files you don't want in your WordPress.org distribution
+
+
+# Directories
+.git
+.github
+.wordpress-org
+
+
+# Files
+.distignore
+.gitattributes
+.gitignore
+
+
+# File Types
+*.log
+*.sql
+*.tar.gz
+*.xml
+*.zip

@@ -1,29 +1,13 @@
 <?php
 /*
 Plugin Name: Simple Side Tab
-Plugin URI: http://rumspeed.com/wordpress-plugins/simple-side-tab/
+Plugin URI: https://rumspeed.com/wordpress-plugins/simple-side-tab/
 Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 1.2.1
+Version: 1.2.2
 Author: Scot Rumery
-Author URI: http://rumspeed.com/scot-rumery/
-License: GPLv2
-*/
-
-/*  Copyright 2016  Scot Rumery (email : scot@rumspeed.com)
-
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+Author URI: https://rumspeed.com/scot-rumery/
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 */
 
 
@@ -250,7 +234,6 @@ function rum_sst_options_page() {
 ?>
 
 	<div class="wrap">
-	<?php screen_icon( 'plugins' ); ?>
 	<h2>Simple Side Tab</h2>
 	<p>Simple Side Tab was created to give you an easy option for adding a linkable tab to the side of your WordPress website. Use it to link to your contact/support/feedback page or use it to drive traffic to a new product you just released. It's quick and easy. <em>NOTE: This plugin requires the WP_footer() hook to be fired from your theme.</em></p>
 	<form method="post" action="options.php">

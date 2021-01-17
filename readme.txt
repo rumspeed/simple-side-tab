@@ -2,11 +2,11 @@
 Contributors: srumery
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RYGE4PYK68H54
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
-Requires at least: 4.6
-Tested up to: 5.0
-Stable tag: 1.2.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: 5.2
+Tested up to: 5.6
+Stable tag: 1.2.2
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
 
