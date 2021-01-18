@@ -97,6 +97,9 @@ add_filter( &#039;rum_sst_plugin_display_tab&#039;, &#039;rum_filter_simple_side
 
 == Changelog ==
 
+= 1.2.3 =
+* Tested up to: 5.6
+
 = 1.2.1 =
 * FIX: Undefined index: 'text_shadow' and 'font_weight_bold' - when on the settings page
 
