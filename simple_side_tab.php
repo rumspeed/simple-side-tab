@@ -1,14 +1,16 @@
 <?php
-/*
-Plugin Name: Simple Side Tab
-Plugin URI: https://rumspeed.com/wordpress-plugins/simple-side-tab/
-Description: Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
-Version: 1.2.3
-Author: Scot Rumery
-Author URI: https://rumspeed.com/scot-rumery/
-License: GPLv3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
-*/
+/**
+ * Plugin Name:       Simple Side Tab
+ * Plugin URI:        https://rumspeed.com/wordpress-plugins/simple-side-tab/
+ * Description:       Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
+ * Version:           1.2.3
+ * Requires at least: 5.2
+ * Requires PHP:      7.2
+ * Author:            Scot Rumery
+ * Author URI:        https://rumspeed.com/simple-side-tab/
+ * License:           GPLv3
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
+ */
 
 
 
