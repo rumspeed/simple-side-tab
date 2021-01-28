@@ -49,32 +49,32 @@ define( 'SIMPLE_SIDE_TAB_VERSION', '1.2.3' );
 
 
 
-// /**
-//  * The code that runs during plugin activation.
-//  * This action is documented in includes/class-plugin-name-activator.php
-//  */
-// function activate_plugin_name() {
-// 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
-// 	Plugin_Name_Activator::activate();
-// }
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-simple-side-tab-activator.php
+ */
+function activate_simple_side_tab() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-side-tab-activator.php';
+	Simple_Side_Tab_Activator::activate();
+}
 
 
 
 
 // /**
 //  * The code that runs during plugin deactivation.
-//  * This action is documented in includes/class-plugin-name-deactivator.php
+//  * This action is documented in includes/class-simple-side-tab-deactivator.php
 //  */
-// function deactivate_plugin_name() {
-// 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
+// function deactivate_simple_side_tab() {
+// 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-side-tab-deactivator.php';
 // 	Plugin_Name_Deactivator::deactivate();
 // }
 
 
 
 
-// register_activation_hook( __FILE__, 'activate_plugin_name' );
-// register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_simple_side_tab' );
+// register_deactivation_hook( __FILE__, 'deactivate_simple_side_tab' );
 
 
 
@@ -119,34 +119,6 @@ run_simple_side_tab();
 
 
 
-// Hook will fire upon activation - we are using it to set default option values
-register_activation_hook( __FILE__, 'rum_sst_activate_plugin' );
-
-
-
-
-// Add options and populate default values on first load
-function rum_sst_activate_plugin() {
-
-	// populate plugin options array
-	$rum_sst_plugin_options = array(
-		'text_for_tab'     => 'SIMPLE SIDE TAB',
-		'font_family'      => 'Tahoma, sans-serif',
-		'font_weight_bold' => '1',
-		'text_shadow'      => '0',
-		'tab_url'          => 'http://rumspeed.com',
-		'pixels_from_top'  => '350',
-		'text_color'       => '#FFFFFF',
-		'tab_color'        => '#A0244E',
-		'hover_color'      => '#A4A4A4',
-		'target_blank'     => '0',
-		'left_right'	   => 'left'
-		);
-
-	// create field in WP_options to store all plugin data in one field
-	add_option( 'rum_sst_plugin_options', $rum_sst_plugin_options );
-
-}
 
 
 
