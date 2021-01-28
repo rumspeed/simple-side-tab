@@ -61,7 +61,14 @@ class Simple_Side_Tab_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles( $hook ) {
+
+        // only enqueue farbtastic on the plugin settings page
+        if( $hook != 'settings_page_rum_simple_side_tab' )
+            return;
+
+        // load the style for farbtastic color picker
+        wp_enqueue_style( 'farbtastic' );
 
         // wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 	}
@@ -74,15 +81,13 @@ class Simple_Side_Tab_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts($hook) {
+	public function enqueue_scripts( $hook ) {
 
         // only enqueue farbtastic on the plugin settings page
-        if( $hook != 'settings_page_rum_simple_side_tab' ) 
+        if( $hook != 'settings_page_rum_simple_side_tab' )
             return;
 
-
-        // load the style and script for farbtastic color picker
-        wp_enqueue_style( 'farbtastic' );
+        // load the script for farbtastic color picker
         wp_enqueue_script( 'farbtastic' );
 
 //        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
