@@ -57,7 +57,7 @@ define( 'SIMPLE_SIDE_TAB_BASENAME', plugin_basename(__FILE__) );
  * This action is documented in includes/class-simple-side-tab-activator.php
  */
 function activate_simple_side_tab() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-side-tab-activator.php';
+	require_once SIMPLE_SIDE_TAB_DIR . '/includes/class-simple-side-tab-activator.php';
 	Simple_Side_Tab_Activator::activate();
 }
 
@@ -69,7 +69,7 @@ function activate_simple_side_tab() {
  * This action is documented in includes/class-simple-side-tab-deactivator.php
  */
 function deactivate_simple_side_tab() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-side-tab-deactivator.php';
+	require_once SIMPLE_SIDE_TAB_DIR . '/includes/class-simple-side-tab-deactivator.php';
 	Simple_Side_Tab_Deactivator::deactivate();
 }
 
@@ -86,7 +86,7 @@ register_deactivation_hook( __FILE__, 'deactivate_simple_side_tab' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-simple-side-tab.php';
+require SIMPLE_SIDE_TAB_DIR . '/includes/class-simple-side-tab.php';
 
 
 
