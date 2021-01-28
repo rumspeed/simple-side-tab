@@ -51,53 +51,72 @@ class Simple_Side_Tab_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
-	/**
+
+
+
+    /**
 	 * Register the stylesheets for the admin area.
 	 *
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Plugin_Name_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
-
+        // wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
 	}
 
-	/**
+
+
+
+    /**
 	 * Register the JavaScript for the admin area.
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts($hook) {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Plugin_Name_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+        // only enqueue farbtastic on the plugin settings page
+        if( $hook != 'settings_page_rum_simple_side_tab' ) 
+            return;
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
 
+        // load the style and script for farbtastic color picker
+        wp_enqueue_style( 'farbtastic' );
+        wp_enqueue_script( 'farbtastic' );
+
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
 	}
+
+
+
+
+    // action function to add a new submenu under Settings
+    public function admin_menu() {
+
+        // Add a new submenu under Settings
+        add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', 'rum_sst_options_page' );
+    }
+
+
+
+
+    // Use Settings API to whitelist options
+    public function settings_api_init() {
+
+        register_setting( 'rum_sst_option_group', 'rum_sst_plugin_options' );
+    }
+
+
+
+
+    // Build array of links for rendering in installed plugins list
+    public function plugin_actions( $links ) {
+
+        $settings = array( 'settings' => '<a href="options-general.php?page=rum_simple_side_tab">' . __('Settings') . '</a>' );
+        $actions  = array_merge( $settings, $links );
+
+        return $actions;
+    }
 
 }

@@ -45,6 +45,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  */
 define( 'SIMPLE_SIDE_TAB_VERSION', '1.2.3' );
+define( 'SIMPLE_SIDE_TAB_BASENAME', plugin_basename(__FILE__) );
 
 
 
@@ -123,30 +124,6 @@ run_simple_side_tab();
 
 
 
-// Fire off hooks in the admin
-function rum_sst_admin_settings() {
-
-	if ( is_admin() ){ // admin actions and filters
-
-		// Hook for adding admin menu
-		add_action( 'admin_menu', 'rum_sst_admin_menu' );
-
-		// Hook for registering plugin option settings
-		add_action( 'admin_init', 'rum_sst_settings_api_init');
-
-		// Hook to fire farbtastic includes for using built in WordPress color picker functionality
-		add_action('admin_enqueue_scripts', 'rum_sst_farbtastic_script');
-
-		// Display the 'Settings' link in the plugin row on the installed plugins list page
-		add_filter( 'plugin_action_links_'.plugin_basename(__FILE__), 'rum_sst_admin_plugin_actions', -10);
-
-	}
-}
-add_action( 'init', 'rum_sst_admin_settings' );
-
-
-
-
 // non-admin enqueues, actions, and filters (public display of the tab)
 function rum_sst_display_tab() {
 
@@ -207,22 +184,6 @@ function rum_get_full_url() {
 
 		return $protocol . "://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 	}
-}
-
-
-
-
-// Include WordPress color picker functionality
-function rum_sst_farbtastic_script($hook) {
-
-	// only enqueue farbtastic on the plugin settings page
-	if( $hook != 'settings_page_rum_simple_side_tab' ) 
-		return;
-
-
-	// load the style and script for farbtastic
-	wp_enqueue_style( 'farbtastic' );
-	wp_enqueue_script( 'farbtastic' );
 }
 
 
@@ -290,16 +251,6 @@ function rum_sst_body_tag_html() {
 	   // Write HTML to render tab
 	   echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . ' id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</a>';
 	}
-}
-
-
-
-
-// action function to add a new submenu under Settings
-function rum_sst_admin_menu() {
-
-	// Add a new submenu under Settings
-	add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', 'rum_sst_options_page' );
 }
 
 
@@ -501,25 +452,6 @@ function rum_sst_options_page() {
 <?php
 	echo '</form>';
 	echo '</div>';
-}
-
-
-
-
-// Use Settings API to whitelist options
-function rum_sst_settings_api_init() {
-
-	register_setting( 'rum_sst_option_group', 'rum_sst_plugin_options' );
-}
-
-
-
-
-// Build array of links for rendering in installed plugins list
-function rum_sst_admin_plugin_actions($links) {
-
-	$links[] = '<a href="options-general.php?page=rum_simple_side_tab">'.__('Settings').'</a>';
-	return $links;
 }
 
 
