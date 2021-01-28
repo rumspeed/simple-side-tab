@@ -100,7 +100,8 @@ class Simple_Side_Tab_Admin {
     public function admin_menu() {
 
         // Add a new submenu under Settings
-        add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', 'rum_sst_options_page' );
+// TODO: the function rum_sst_options_page() must be moved into this CLASS
+		add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', 'rum_sst_options_page' );
     }
 
 
@@ -109,6 +110,7 @@ class Simple_Side_Tab_Admin {
     // Use Settings API to whitelist options
     public function settings_api_init() {
 
+// TODO: the function rum_sst_plugin_options() must be moved into this CLASS
         register_setting( 'rum_sst_option_group', 'rum_sst_plugin_options' );
     }
 
