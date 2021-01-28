@@ -61,20 +61,20 @@ function activate_simple_side_tab() {
 
 
 
-// /**
-//  * The code that runs during plugin deactivation.
-//  * This action is documented in includes/class-simple-side-tab-deactivator.php
-//  */
-// function deactivate_simple_side_tab() {
-// 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-side-tab-deactivator.php';
-// 	Plugin_Name_Deactivator::deactivate();
-// }
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-simple-side-tab-deactivator.php
+ */
+function deactivate_simple_side_tab() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-side-tab-deactivator.php';
+	Simple_Side_Tab_Deactivator::deactivate();
+}
 
 
 
 
 register_activation_hook( __FILE__, 'activate_simple_side_tab' );
-// register_deactivation_hook( __FILE__, 'deactivate_simple_side_tab' );
+register_deactivation_hook( __FILE__, 'deactivate_simple_side_tab' );
 
 
 
