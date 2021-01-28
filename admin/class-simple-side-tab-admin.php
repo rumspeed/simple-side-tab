@@ -99,9 +99,7 @@ class Simple_Side_Tab_Admin {
     // action function to add a new submenu under Settings
     public function admin_menu() {
 
-        // Add a new submenu under Settings
-// TODO: the function rum_sst_options_page() must be moved into this CLASS
-		add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', 'rum_sst_options_page' );
+		add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', 'rum_simple_side_tab', array( $this, 'render_settings_page') );
     }
 
 
@@ -125,5 +123,14 @@ class Simple_Side_Tab_Admin {
 
         return $actions;
     }
+
+
+
+
+	// Display and plugin settings page
+	public function render_settings_page() {
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/settings-page.php';
+	}
 
 }
