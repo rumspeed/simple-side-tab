@@ -90,7 +90,7 @@ class Simple_Side_Tab_Admin {
         // load the script for farbtastic color picker
         wp_enqueue_script( 'farbtastic' );
 
-//        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
+        // wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
 	}
 
 
