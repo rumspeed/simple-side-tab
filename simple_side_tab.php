@@ -135,6 +135,7 @@ run_simple_side_tab();
 
 
 // non-admin enqueues, actions, and filters (public display of the tab)
+add_action( 'wp', 'rum_sst_display_tab' );
 function rum_sst_display_tab() {
 
 	if ( is_admin() ) { // return without running if we are in the admin
@@ -176,7 +177,6 @@ function rum_sst_display_tab() {
 		add_action( 'wp_footer', 'rum_sst_body_tag_html' );
 	}
 }
-add_action( 'wp', 'rum_sst_display_tab' );
 
 
 
