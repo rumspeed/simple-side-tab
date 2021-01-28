@@ -45,6 +45,8 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  */
 define( 'SIMPLE_SIDE_TAB_VERSION', '1.2.3' );
+define( 'SIMPLE_SIDE_TAB_DIR', dirname( __FILE__ ) );
+define( 'SIMPLE_SIDE_TAB_URI', plugins_url( '' , __FILE__ ) );
 define( 'SIMPLE_SIDE_TAB_BASENAME', plugin_basename(__FILE__) );
 
 

@@ -130,7 +130,7 @@ class Simple_Side_Tab_Admin {
 	// Display and plugin settings page
 	public function render_settings_page() {
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/partials/settings-page.php';
+		require_once SIMPLE_SIDE_TAB_DIR . '/admin/partials/settings-page.php';
 	}
 
 }
