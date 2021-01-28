@@ -124,6 +124,14 @@ run_simple_side_tab();
 
 
 
+// TODO: everything below this must be moved into CLASSES
+// TODO: everything below this must be moved into CLASSES
+// TODO: everything below this must be moved into CLASSES
+// TODO: everything below this must be moved into CLASSES
+
+
+
+
 // non-admin enqueues, actions, and filters (public display of the tab)
 function rum_sst_display_tab() {
 
