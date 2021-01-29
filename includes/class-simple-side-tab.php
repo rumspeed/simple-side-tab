@@ -125,7 +125,12 @@ class Simple_Side_Tab {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-simple-side-tab-public.php';
 
-		$this->loader = new Simple_Side_Tab_Loader();
+		/**
+		 * The class responsible for managing the plugin option settings
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-simple-side-tab-options.php';
+        
+        $this->loader = new Simple_Side_Tab_Loader();
 
 	}
 
