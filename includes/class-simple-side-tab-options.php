@@ -73,5 +73,20 @@ class Simple_Side_Tab_Options {
     }
 
 
+    public function get_page_target() {
+        if ($this->target_blank) {
+            return ' target="_blank"';
+        } else {
+            return '';
+        }
+    }
+
+
+
+    public function get_tab_side_class() {
+        return 'rum_sst_' . $this->left_right;
+    }
+
+
 // TODO: add public method to return default option values; use in class Simple_Side_Tab_Activator
 }

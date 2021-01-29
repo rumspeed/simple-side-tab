@@ -41,6 +41,15 @@ class Simple_Side_Tab_Public {
 	private $version;
 
 	/**
+	 * Plugin settings.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      object    $settings    Plugin settings.
+	 */
+	private $settings;
+
+    /**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
@@ -52,6 +61,8 @@ class Simple_Side_Tab_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+        // get the object with all the plugins settings
+        $this->settings = new Simple_Side_Tab_Options();
 	}
 
 	/**
@@ -106,7 +117,7 @@ class Simple_Side_Tab_Public {
     public function display_tab() {
 
         // set the value for the tab display to true
-        // this can only be changed by the 'rum_sst_plugin_display_tab' filter)
+        // this can only be changed by the 'rum_sst_plugin_display_tab' filter
         $rum_sst_display_tab = true;
     
     
@@ -120,18 +131,9 @@ class Simple_Side_Tab_Public {
         }
     
     
-        // get the current page url
-        $rum_current_page_url 			= $this->get_full_url();
-    
-    
-        // get the tab url from the plugin option variable array
-        $rum_sst_plugin_option_array	= get_option( 'rum_sst_plugin_options' );
-        $rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
-    
-    
         // compare the page url and the option tab - don't render the tab if the values are the same
 // TODO: consider adding this to the plugin loader
-        if ( $rum_sst_tab_url != $rum_current_page_url ) {
+        if ( $this->settings->tab_url != $this->get_full_url() ) {
     
             // hook to get option values and dynamically render css to support the tab classes
             add_action( 'wp_head', array( $this, 'custom_css_hook') );
@@ -166,64 +168,25 @@ class Simple_Side_Tab_Public {
     // action function to get option values and write the div for the Simple Side Tab to display
     public function body_tag_html() {
 
-        // get plugin option array and store in a variable
-        $rum_sst_plugin_option_array	= get_option( 'rum_sst_plugin_options' );
-
-        // fetch individual values from the plugin option variable array
-        $rum_sst_text_for_tab			= $rum_sst_plugin_option_array[ 'text_for_tab' ];
-        $rum_sst_tab_url				= $rum_sst_plugin_option_array[ 'tab_url' ];
-
-
-        // sanatize the output string
-        $rum_sst_text_for_tab = esc_html( $rum_sst_text_for_tab );
+        // fetch and sanatize values from the plugin object
+        $rum_sst_text_for_tab		= esc_html( $this->settings->text_for_tab);
+        $rum_sst_tab_url			= esc_url( $this->settings->tab_url );
 
 
         // apply filters for the tab text
-        $rum_sst_text_for_tab = apply_filters( 'rum_sst_plugin_text_for_tab', $rum_sst_text_for_tab );
+        $rum_sst_text_for_tab       = apply_filters( 'rum_sst_plugin_text_for_tab', $rum_sst_text_for_tab );
 
-
-        // this field was added after the initial release so it may not be set
-        if ( isset($rum_sst_plugin_option_array[ 'target_blank' ] ) ) {
-            $rum_sst_target_blank			= $rum_sst_plugin_option_array[ 'target_blank' ];
-        } else {
-            $rum_sst_target_blank			= '0';
-        }
-
-
-        // this field was added after the initial release so it may not be set
-        if ( isset($rum_sst_plugin_option_array[ 'left_right' ] ) ) {
-            $rum_sst_left_right			= $rum_sst_plugin_option_array[ 'left_right' ];
-        } else {
-            $rum_sst_left_right			= 'left';
-        }
-
-
-        // set the page target
-        if ($rum_sst_target_blank == '1') {
-            $rum_sst_target_blank = ' target="_blank"';
-        } else {
-            $rum_sst_target_blank = '';
-        }
-        
-
-        // set side of page for tab
-        if ($rum_sst_left_right == 'right') {
-            $rum_sst_left_right_location = 'rum_sst_right';
-        } else {
-            $rum_sst_left_right_location = 'rum_sst_left';
-        }
-        
 
         if(preg_match('/(?i)msie [7-8]/',$_SERVER['HTTP_USER_AGENT'])) {
 
             // if IE 7 or 8
             // Write HTML to render tab
-            echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</div></a>';
+            echo '<a href="' . $rum_sst_tab_url . '"' . $this->settings->get_page_target() . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $this->settings->get_tab_side_class() . '">' . $rum_sst_text_for_tab . '</div></a>';
         } else {
 
-        // if IE>8
-        // Write HTML to render tab
-        echo '<a href="' . esc_url( $rum_sst_tab_url ) . '"' . $rum_sst_target_blank . ' id="rum_sst_tab" class="rum_sst_contents ' . $rum_sst_left_right_location . '">' . $rum_sst_text_for_tab . '</a>';
+            // if IE>8
+            // Write HTML to render tab
+            echo '<a href="' . $rum_sst_tab_url . '"' . $this->settings->get_page_target() . ' id="rum_sst_tab" class="rum_sst_contents ' . $this->settings->get_tab_side_class() . '">' . $rum_sst_text_for_tab . '</a>';
         }
     }
 
@@ -235,14 +198,6 @@ class Simple_Side_Tab_Public {
 
         // get plugin option array and store in a variable
         $rum_sst_plugin_option_array	= get_option( 'rum_sst_plugin_options' );
-
-        // fetch individual values from the plugin option variable array
-        $rum_sst_font_family			= $rum_sst_plugin_option_array[ 'font_family' ];
-        $rum_sst_pixels_from_top		= $rum_sst_plugin_option_array[ 'pixels_from_top' ];
-        $rum_sst_text_color				= $rum_sst_plugin_option_array[ 'text_color' ];
-        $rum_sst_tab_color				= $rum_sst_plugin_option_array[ 'tab_color' ];
-        $rum_sst_hover_color			= $rum_sst_plugin_option_array[ 'hover_color' ];
-        $rum_sst_left_right				= $rum_sst_plugin_option_array[ 'left_right' ];
 
 
         // set a default value if the option is not set
@@ -264,20 +219,20 @@ class Simple_Side_Tab_Public {
     <style type='text/css'>
     /* Begin Simple Side Tab Styles*/
     #rum_sst_tab {
-        font-family:<?php echo $rum_sst_font_family; ?>;
-        top:<?php echo $rum_sst_pixels_from_top; ?>px;
-        background-color:<?php echo $rum_sst_tab_color; ?>;
-        color:<?php echo $rum_sst_text_color; ?>;
+        font-family:<?php echo $this->settings->font_family; ?>;
+        top:<?php echo $this->settings->pixels_from_top; ?>px;
+        background-color:<?php echo $this->settings->tab_color; ?>;
+        color:<?php echo $this->settings->text_color; ?>;
         border-style:solid;
         border-width:0px;
     }
 
     #rum_sst_tab:hover {
-        background-color: <?php echo $rum_sst_hover_color; ?>;
+        background-color: <?php echo $this->settings->hover_color; ?>;
         <?php
         if ( $rum_sst_text_shadow == '1' ) {
 
-            if ( $rum_sst_left_right == 'left' ) {
+            if ( $this->settings->left_right == 'left' ) {
 
             echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
             echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
