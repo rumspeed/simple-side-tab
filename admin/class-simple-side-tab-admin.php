@@ -108,7 +108,6 @@ class Simple_Side_Tab_Admin {
     // Use Settings API to whitelist options
     public function settings_api_init() {
 
-// TODO: the function rum_sst_plugin_options() must be moved into this CLASS
         register_setting( 'rum_sst_option_group', 'rum_sst_plugin_options' );
     }
 
