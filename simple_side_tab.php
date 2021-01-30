@@ -42,7 +42,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 
 /**
- * Currently plugin version.
+ * Plugin constants.
  */
 define( 'SIMPLE_SIDE_TAB_VERSION', '1.2.3' );
 define( 'SIMPLE_SIDE_TAB_DIR', dirname( __FILE__ ) );
