@@ -70,7 +70,7 @@ class Simple_Side_Tab_Public {
 	 */
 	public function enqueue_styles() {
 
-        // wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version, 'all' );
+        // wp_enqueue_style( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/public/css/simple-side-tab-public.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -80,7 +80,7 @@ class Simple_Side_Tab_Public {
 	 */
 	public function enqueue_scripts() {
 
-        // wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, false );
+        // wp_enqueue_script( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/public/js/simple-side-tab-public.js', array( 'jquery' ), $this->version, false );
 	}
 
 	/**
