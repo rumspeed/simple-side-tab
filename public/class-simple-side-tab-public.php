@@ -208,12 +208,6 @@ class Simple_Side_Tab_Public {
         }
 
 
-        // set a default value if the option is not set
-        if ( isset($rum_sst_plugin_option_array[ 'font_weight_bold' ] ) ) {
-            $rum_sst_font_weight_bold		= $rum_sst_plugin_option_array[ 'font_weight_bold' ];
-        } else {
-            $rum_sst_font_weight_bold		= 0;
-        }
     ?>
 
     <style type='text/css'>
@@ -256,13 +250,7 @@ class Simple_Side_Tab_Public {
         text-decoration:none;
         text-align:center;
         font-size:15px;
-        <?php
-        if ( $rum_sst_font_weight_bold == '1' ) :
-        echo 'font-weight:bold;' . "\n";
-        else :
-        echo 'font-weight:normal;' . "\n";
-        endif;
-        ?>
+        font-weight:<?php echo $this->settings->get_font_weight(); ?>;
         border-style:solid;
         display:block;
         z-index:100000;
