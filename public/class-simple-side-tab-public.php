@@ -113,7 +113,7 @@ class Simple_Side_Tab_Public {
     
     
         // compare the page url and the option tab - don't render the tab if the values are the same
-// TODO: consider adding this to the plugin loader
+        // TODO: consider adding this to the plugin loader
         if ( $this->settings->tab_url != $this->get_full_url() ) {
     
             // hook to get option values and dynamically render css to support the tab classes
