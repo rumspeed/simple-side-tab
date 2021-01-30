@@ -128,7 +128,6 @@ class Simple_Side_Tab_Public {
 
 
     // get the complete url for the current page
-// TODO: consider putting this method in a settings class and set the value as a property
     public function get_full_url() {
 
         // wrap contents within isset(); these variables are not available when using WP-CLI
