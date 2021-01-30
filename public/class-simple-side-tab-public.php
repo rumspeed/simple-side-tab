@@ -188,19 +188,16 @@ class Simple_Side_Tab_Public {
         <?php
         if ( $this->settings->text_shadow ) {
             if ( $this->settings->left_right == 'left' ) {
-
-            echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
-            echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
-            echo '	box-shadow:         -3px 3px 5px 2px #ccc;' . "\n";
+                echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
+                echo '	-webkit-box-shadow: -3px 3px 5px 2px #ccc;' . "\n";
+                echo '	box-shadow:         -3px 3px 5px 2px #ccc;' . "\n";
             } else {
-
-            echo '	-moz-box-shadow:    -3px -3px 5px 2px #ccc;' . "\n";
-            echo '	-webkit-box-shadow: -3px -3px 5px 2px #ccc;' . "\n";
-            echo '	box-shadow:         -3px -3px 5px 2px #ccc;' . "\n";			
+                echo '	-moz-box-shadow:    -3px -3px 5px 2px #ccc;' . "\n";
+                echo '	-webkit-box-shadow: -3px -3px 5px 2px #ccc;' . "\n";
+                echo '	box-shadow:         -3px -3px 5px 2px #ccc;' . "\n";			
             }
         }
     ?>
-
 
     }
 
