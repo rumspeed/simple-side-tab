@@ -61,9 +61,7 @@ class Simple_Side_Tab_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-        // get the object with all the plugins settings
-        $this->settings = new Simple_Side_Tab_Options();
-	}
+    }
 
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
@@ -84,6 +82,15 @@ class Simple_Side_Tab_Public {
 
         // wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, false );
 	}
+
+	/**
+	 * Register the JavaScript for the public-facing side of the site.
+	 *
+	 * @since    1.0.0
+	 */
+	public function set_plugin_options() {
+        $this->settings = new Simple_Side_Tab_Options();
+    }
 
 
 
