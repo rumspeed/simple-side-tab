@@ -88,5 +88,30 @@ class Simple_Side_Tab_Options {
     }
 
 
-// TODO: add public method to return default option values; use in class Simple_Side_Tab_Activator
+    public function get_font_weight() {
+        if ($this->font_weight_bold) {
+            return 'bold';
+        } else {
+            return 'normal';
+        }
+    }
+
+
+    static function get_default_settings() {
+        // return default option values; used in class Simple_Side_Tab_Activator
+        return array(
+            'text_for_tab'     => 'Simple Side Tab',
+            'font_family'      => 'Tahoma, sans-serif',
+            'font_weight_bold' => '1',
+            'text_shadow'      => '0',
+            'tab_url'          => 'https://rumspeed.com',
+            'pixels_from_top'  => '350',
+            'text_color'       => '#ffffff',
+            'tab_color'        => '#a0244e',
+            'hover_color'      => '#a4a4a4',
+            'target_blank'     => '0',
+            'left_right'	   => 'left'
+            );
+    }
+
 }
