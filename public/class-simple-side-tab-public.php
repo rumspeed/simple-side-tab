@@ -170,18 +170,6 @@ class Simple_Side_Tab_Public {
     // This function runs all the css and dynamic css elements for displaying the simple side tab
     public function custom_css_hook() {
 
-        // get plugin option array and store in a variable
-        $rum_sst_plugin_option_array	= get_option( 'rum_sst_plugin_options' );
-
-
-        // set a default value if the option is not set
-        if ( isset($rum_sst_plugin_option_array[ 'text_shadow' ] ) ) {
-            $rum_sst_text_shadow			= $rum_sst_plugin_option_array[ 'text_shadow' ];
-        } else {
-            $rum_sst_text_shadow			= 0;
-        }
-
-
     ?>
 
     <style type='text/css'>
@@ -198,8 +186,7 @@ class Simple_Side_Tab_Public {
     #rum_sst_tab:hover {
         background-color: <?php echo $this->settings->hover_color; ?>;
         <?php
-        if ( $rum_sst_text_shadow == '1' ) {
-
+        if ( $this->settings->text_shadow ) {
             if ( $this->settings->left_right == 'left' ) {
 
             echo '	-moz-box-shadow:    -3px 3px 5px 2px #ccc;' . "\n";
