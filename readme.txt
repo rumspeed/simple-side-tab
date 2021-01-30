@@ -3,7 +3,7 @@ Contributors: srumery
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 5.2
 Tested up to: 5.6
-Stable tag: 1.2.3
+Stable tag: 2.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -95,6 +95,11 @@ add_filter( &#039;rum_sst_plugin_display_tab&#039;, &#039;rum_filter_simple_side
 1. Simple Side Tab is action based on option settings
 
 == Changelog ==
+
+= 2.0.0 =
+* Refactor code following WordPress Plugin Boilerplate
+* No breaking changes introduced
+* New codebase sets foundation for future improvements
 
 = 1.2.3 =
 * Tested up to: 5.6
