@@ -118,7 +118,8 @@ class Simple_Side_Tab_Admin {
     public function plugin_actions( $links ) {
 
         $settings = array( 'settings' => '<a href="options-general.php?page=rum_simple_side_tab">' . __('Settings') . '</a>' );
-        $actions  = array_merge( $settings, $links );
+        $support  = array( 'support'  => '<a href="https://wordpress.org/support/plugin/simple-side-tab/" target="_blank">' . __('Support') . '</a>' );
+        $actions  = array_merge( $settings, $support, $links );
 
         return $actions;
     }
