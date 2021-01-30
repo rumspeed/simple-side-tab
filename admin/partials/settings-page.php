@@ -30,29 +30,6 @@ $settings = new Simple_Side_Tab_Options();
 		do_settings_sections( 'rum_simple_side_tab' );
     ?>
 
-		<script type="text/javascript">
-
-			jQuery(document).ready(function() {
-				jQuery('#colorpicker1').hide();
-				jQuery('#colorpicker1').farbtastic("#color1");
-				jQuery("#color1").click(function(){jQuery('#colorpicker1').slideToggle()});
-			});
-
-			jQuery(document).ready(function() {
-				jQuery('#colorpicker2').hide();
-				jQuery('#colorpicker2').farbtastic("#color2");
-				jQuery("#color2").click(function(){jQuery('#colorpicker2').slideToggle()});
-			});
-
-			jQuery(document).ready(function() {
-				jQuery('#colorpicker3').hide();
-				jQuery('#colorpicker3').farbtastic("#color3");
-				jQuery("#color3").click(function(){jQuery('#colorpicker3').slideToggle()});
-			});
-
-		</script>
-
-
         <table class="widefat">
 
             <tr valign="top">

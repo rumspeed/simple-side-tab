@@ -70,7 +70,7 @@ class Simple_Side_Tab_Admin {
         // load the style for farbtastic color picker
         wp_enqueue_style( 'farbtastic' );
 
-        // wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+        // wp_enqueue_style( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/admin/css/plugin-name-admin.css', array(), $this->version, 'all' );
 	}
 
 
@@ -90,7 +90,8 @@ class Simple_Side_Tab_Admin {
         // load the script for farbtastic color picker
         wp_enqueue_script( 'farbtastic' );
 
-        // wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-admin.js', array( 'jquery' ), $this->version, false );
+		// JavaScript needed for admin features
+		wp_enqueue_script( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/admin/js/simple-side-tab-admin.js', array( 'jquery' ), $this->version, false );
 	}
 
 
