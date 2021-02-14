@@ -112,10 +112,9 @@ class Simple_Side_Tab_Public {
         }
     
     
-        // compare the page url and the option tab - don't render the tab if the values are the same
-        // TODO: consider adding this to the plugin loader
-        if ( $this->settings->tab_url != $this->get_full_url() ) {
-    
+        // only run display actions if the Tab URL and the currnet page URL do not matach
+        // in other words... do not display the tab on a page that links to itself
+        if ( ! $this->is_url_match() ) {
             // hook to get option values and dynamically render css to support the tab classes
             add_action( 'wp_head', array( $this, 'custom_css_hook') );
     
@@ -139,6 +138,18 @@ class Simple_Side_Tab_Public {
             $protocol 	= substr($sp, 0, strpos($sp, "/")) . $s;
 
             return $protocol . "://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+        }
+    }
+
+
+
+
+    // conditional for comparing the Tab URL value with the current page URL
+    public function is_url_match() {
+        // using untrailingslashit() on both in case the settings URL doesn't have a trailing slash but the page does
+        if ( untrailingslashit( $this->settings->tab_url ) == untrailingslashit( $this->get_full_url() ) ) {
+            // we've got a match
+            return true;
         }
     }
 
