@@ -10,8 +10,9 @@
  * @subpackage Plugin_Name/public/partials
  */
 ?>
+
 <style type='text/css'>
-/* Begin Simple Side Tab Styles*/
+/* START Styles Simple Side Tab v<?php echo SIMPLE_SIDE_TAB_VERSION ?> */
 #rum_sst_tab {
     font-family:<?php echo $this->settings->font_family; ?>;
     top:<?php echo $this->settings->pixels_from_top; ?>px;
@@ -90,5 +91,5 @@ echo '	box-shadow:         -3px -3px 5px 2px #ccc;' . "\n";
 .rum_sst_left.less-ie-9 {
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
-/* End Simple Side Tab Styles*/
+/* END Styles Simple Side Tab */
 </style>
