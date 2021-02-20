@@ -16,7 +16,7 @@
 
 
 // get the object with all the plugins settings
-$settings = new Simple_Side_Tab_Options();
+$settings = $this->settings;
 
 ?>
 

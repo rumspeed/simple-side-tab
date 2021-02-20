@@ -41,16 +41,26 @@ class Simple_Side_Tab_Admin {
 	private $version;
 
 	/**
+	 * Plugin settings.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      object    $settings    Plugin settings.
+	 */
+	private $settings;
+
+	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $version, $settings ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->settings = $settings;
 	}
 
 

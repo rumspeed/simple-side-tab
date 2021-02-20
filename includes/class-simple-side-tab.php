@@ -61,6 +61,15 @@ class Simple_Side_Tab {
 	protected $version;
 
 	/**
+	 * Plugin settings.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      object    $settings    Plugin settings.
+	 */
+	private $settings;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -82,6 +91,7 @@ class Simple_Side_Tab {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
+		$this->settings = new Simple_Side_Tab_Options();
 	}
 
 	/**
@@ -166,7 +176,7 @@ class Simple_Side_Tab {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Simple_Side_Tab_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Simple_Side_Tab_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_settings() );
 
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'admin_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'settings_api_init' );
@@ -188,7 +198,7 @@ class Simple_Side_Tab {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Simple_Side_Tab_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Simple_Side_Tab_Public( $this->get_plugin_name(), $this->get_version(), $this->get_settings() );
 
         $this->loader->add_action( 'wp', $plugin_public, 'set_plugin_options' );
         $this->loader->add_action( 'wp', $plugin_public, 'display_tab' );
@@ -248,4 +258,16 @@ class Simple_Side_Tab {
 		return $this->version;
 	}
 
+
+
+
+	/**
+	 * Retrieve the plugin settings.
+	 *
+	 * @since     1.0.0
+	 * @return    string    The version number of the plugin.
+	 */
+	public function get_settings() {
+		return new Simple_Side_Tab_Options();
+	}
 }
