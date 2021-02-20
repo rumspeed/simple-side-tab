@@ -107,15 +107,15 @@ class Simple_Side_Tab_Options {
         // return default option values; used in class Simple_Side_Tab_Activator
         return array(
             'text_for_tab'     => '',
-            'font_family'      => 'Tahoma, sans-serif',
-            'font_weight_bold' => '1',
-            'text_shadow'      => '0',
             'tab_url'          => '',
+            'font_family'      => 'Tahoma, sans-serif',
+            'font_weight_bold' => null,
+            'text_shadow'      => null,
+            'target_blank'     => null,
             'pixels_from_top'  => '350',
             'text_color'       => '#ffffff',
             'tab_color'        => '#a0244e',
             'hover_color'      => '#a4a4a4',
-            'target_blank'     => '0',
             'left_right'	   => 'left'
             );
     }
