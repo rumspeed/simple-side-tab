@@ -33,6 +33,10 @@ $settings = $this->settings;
         <table class="widefat">
 
             <tr valign="top">
+                <th scope="row"><h3>Settings</h3></th>
+            </tr>
+
+            <tr valign="top">
                 <th scope="row" width="230"><label for="rum_sst_text_for_tab">Text for tab</label></th>
                 <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo esc_html( $settings->text_for_tab ); ?>" required /></td>
             </tr>
@@ -92,7 +96,7 @@ $settings = $this->settings;
         <table class="widefat">
 
             <tr valign="top">
-                <th scope="row" colspan="2" width="33%"><strong>Colors:</strong></th>
+                <th scope="row"><h3>Colors</h3></th>
             </tr>
 
             <tr valign="top">
