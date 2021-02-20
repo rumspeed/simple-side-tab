@@ -33,6 +33,10 @@ $settings = $this->settings;
         <table class="widefat">
 
             <tr valign="top">
+                <th scope="row"><h3>Settings</h3></th>
+            </tr>
+
+            <tr valign="top">
                 <th scope="row" width="230"><label for="rum_sst_text_for_tab">Text for tab</label></th>
                 <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo esc_html( $settings->text_for_tab ); ?>" required /></td>
             </tr>
@@ -89,34 +93,25 @@ $settings = $this->settings;
 
         <br>
 
-        <table class="widefat" border="1">
+        <table class="widefat">
 
             <tr valign="top">
-                <th scope="row" colspan="2" width="33%"><strong>Colors:</strong> Click on each field to display the color picker. Click again to close it.</th>
-                <td width="33%" rowspan="4">
-                    <div id="colorpicker1"></div>
-                    <div id="colorpicker2"></div>
-                    <div id="colorpicker3"></div>
-                </td>
+                <th scope="row"><h3>Colors</h3></th>
             </tr>
 
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_text_color">Text color</label></th>
-                <td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $settings->text_color ); ?>" name="rum_sst_plugin_options[text_color]" id="color1" /></td>
+                <td width="70%"><input type="text" class="color-field" maxlength="7" size="6" value="<?php echo esc_attr( $settings->text_color ); ?>" name="rum_sst_plugin_options[text_color]" /></td>
             </tr>
 
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_tab_color">Tab color</label></th>
-                <td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $settings->tab_color ); ?>" name="rum_sst_plugin_options[tab_color]" id="color2" /></td>
+                <td width="70%"><input type="text" class="color-field" maxlength="7" size="6" value="<?php echo esc_attr( $settings->tab_color ); ?>" name="rum_sst_plugin_options[tab_color]" /></td>
             </tr>
 
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_hover_color">Tab hover color</label></th>
-                <td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $settings->hover_color ); ?>" name="rum_sst_plugin_options[hover_color]" id="color3" /></td>
-            </tr>
-
-            <tr valign="top">
-                <td colspan="3">&nbsp;</td>
+                <td width="70%"><input type="text" class="color-field" maxlength="7" size="6" value="<?php echo esc_attr( $settings->hover_color ); ?>" name="rum_sst_plugin_options[hover_color]" /></td>
             </tr>
 
         </table>
