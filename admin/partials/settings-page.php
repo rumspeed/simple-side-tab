@@ -38,6 +38,11 @@ $settings = new Simple_Side_Tab_Options();
             </tr>
 
             <tr valign="top">
+                <th scope="row"><label for="rum_sst_tab_url">Tab URL</label></th>
+                <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo esc_url( $settings->tab_url ); ?>" /></td>
+            </tr>
+
+            <tr valign="top">
                 <th scope="row"><label for="rum_sst_tab_font">Select font</label></th>
                 <td>
                     <select name="rum_sst_plugin_options[font_family]">
@@ -65,11 +70,6 @@ $settings = new Simple_Side_Tab_Options();
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_target_blank">Open link in new window</label></th>
                 <td><input name="rum_sst_plugin_options[target_blank]" type="checkbox" value="1" <?php checked( '1', $settings->target_blank ); ?> /></td>
-            </tr>
-
-            <tr valign="top">
-                <th scope="row"><label for="rum_sst_tab_url">Tab URL</label></th>
-                <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo esc_url( $settings->tab_url ); ?>" /></td>
             </tr>
 
             <tr valign="top">
