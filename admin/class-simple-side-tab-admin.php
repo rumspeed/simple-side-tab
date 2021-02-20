@@ -61,11 +61,12 @@ class Simple_Side_Tab_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles( $hook ) {
+	public function enqueue_styles() {
 
-        // only enqueue farbtastic on the plugin settings page
-        if( $hook != 'settings_page_rum_simple_side_tab' )
-            return;
+		// return if not plugin settings page 
+		if ( ! $this->is_settings_page() ) {
+			return;
+		}
 
         // load the style for farbtastic color picker
         wp_enqueue_style( 'farbtastic' );
@@ -81,11 +82,12 @@ class Simple_Side_Tab_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts( $hook ) {
+	public function enqueue_scripts() {
 
-        // only enqueue farbtastic on the plugin settings page
-        if( $hook != 'settings_page_rum_simple_side_tab' )
-            return;
+		// return if not plugin settings page 
+		if ( ! $this->is_settings_page() ) {
+			return;
+		}
 
         // load the script for farbtastic color picker
         wp_enqueue_script( 'farbtastic' );
@@ -142,7 +144,7 @@ class Simple_Side_Tab_Admin {
 		// get the current screen
 		$screen = get_current_screen();
 
-		// To get the exact your screen ID just do var_dump($screen)
+		// check to see if we are on our settings page
 		if ( $screen->id == SIMPLE_SIDE_TAB_SETTINGS_PAGE_ID ) {
 			return true;
 		}
@@ -153,7 +155,7 @@ class Simple_Side_Tab_Admin {
 
 	public function require_fields_notice() {
 
-		//return if not plugin settings page 
+		// return if not plugin settings page 
 		if ( ! $this->is_settings_page() ) {
 			return;
 		}
