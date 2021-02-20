@@ -27,7 +27,7 @@ $settings = new Simple_Side_Tab_Options();
     <form method="post" action="options.php">
     <?php
         settings_fields( 'rum_sst_option_group' );
-		do_settings_sections( 'rum_simple_side_tab' );
+		do_settings_sections( SIMPLE_SIDE_TAB_OPTIONS_PAGE );
     ?>
 
         <table class="widefat">

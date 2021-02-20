@@ -48,6 +48,8 @@ define( 'SIMPLE_SIDE_TAB_VERSION', '2.0.0' );
 define( 'SIMPLE_SIDE_TAB_DIR', dirname( __FILE__ ) );
 define( 'SIMPLE_SIDE_TAB_URI', plugins_url( '' , __FILE__ ) );
 define( 'SIMPLE_SIDE_TAB_BASENAME', plugin_basename(__FILE__) );
+define( 'SIMPLE_SIDE_TAB_OPTIONS_PAGE', 'rum_simple_side_tab' );
+define( 'SIMPLE_SIDE_TAB_SETTINGS_PAGE_ID', 'settings_page_' . SIMPLE_SIDE_TAB_OPTIONS_PAGE );
 
 
 
