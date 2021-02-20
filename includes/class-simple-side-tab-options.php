@@ -73,6 +73,13 @@ class Simple_Side_Tab_Options {
     }
 
 
+    public function is_renderable() {
+        if ($this->text_for_tab && $this->tab_url) {
+            return true;
+        }
+    }
+
+
     public function get_page_target() {
         if ($this->target_blank) {
             return ' target="_blank"';
@@ -80,7 +87,6 @@ class Simple_Side_Tab_Options {
             return '';
         }
     }
-
 
 
     public function get_tab_side_class() {
