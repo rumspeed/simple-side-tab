@@ -173,6 +173,7 @@ class Simple_Side_Tab {
 		$this->loader->add_action( 'plugin_action_links_' . SIMPLE_SIDE_TAB_BASENAME, $plugin_admin, 'plugin_actions' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
         $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+        $this->loader->add_action( 'admin_notices', $plugin_admin, 'require_fields_notice' );
 	}
 
 

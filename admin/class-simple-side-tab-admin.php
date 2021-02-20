@@ -134,4 +134,35 @@ class Simple_Side_Tab_Admin {
 		require_once SIMPLE_SIDE_TAB_DIR . '/admin/partials/settings-page.php';
 	}
 
+
+
+
+	public function is_settings_page() {
+
+		// get the current screen
+		$screen = get_current_screen();
+
+		// To get the exact your screen ID just do var_dump($screen)
+		if ( $screen->id == SIMPLE_SIDE_TAB_SETTINGS_PAGE_ID ) {
+			return true;
+		}
+	}
+
+
+
+
+	public function require_fields_notice() {
+
+		//return if not plugin settings page 
+		if ( ! $this->is_settings_page() ) {
+			return;
+		}
+
+		if ( ! $this->settings->is_renderable() ) {
+			echo '<div class="error notice">';
+			echo '	<p>' . __( 'Your tab will not display without the required fields.', 'simple_side_tab' ) . '</p>';
+			echo '</div>';
+		}
+	}
+
 }
