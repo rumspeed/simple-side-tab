@@ -56,11 +56,11 @@ class Simple_Side_Tab_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $version, $settings ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
+		$this->settings = $settings;
     }
 
 	/**
@@ -96,6 +96,13 @@ class Simple_Side_Tab_Public {
 
 
     public function display_tab() {
+
+        // check to see if the tab settings are incomplete
+        if ( ! $this->settings->is_renderable() ) {
+            // settings are incomplete; bail
+            return;
+        }
+
 
         // set the value for the tab display to true
         // this can only be changed by the 'rum_sst_plugin_display_tab' filter

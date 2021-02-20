@@ -16,7 +16,7 @@
 
 
 // get the object with all the plugins settings
-$settings = new Simple_Side_Tab_Options();
+$settings = $this->settings;
 
 ?>
 
@@ -27,14 +27,19 @@ $settings = new Simple_Side_Tab_Options();
     <form method="post" action="options.php">
     <?php
         settings_fields( 'rum_sst_option_group' );
-		do_settings_sections( 'rum_simple_side_tab' );
+		do_settings_sections( SIMPLE_SIDE_TAB_OPTIONS_PAGE );
     ?>
 
         <table class="widefat">
 
             <tr valign="top">
                 <th scope="row" width="230"><label for="rum_sst_text_for_tab">Text for tab</label></th>
-                <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo esc_html( $settings->text_for_tab ); ?>" /></td>
+                <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo esc_html( $settings->text_for_tab ); ?>" required /></td>
+            </tr>
+
+            <tr valign="top">
+                <th scope="row"><label for="rum_sst_tab_url">Tab URL</label></th>
+                <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo esc_url( $settings->tab_url ); ?>" required /></td>
             </tr>
 
             <tr valign="top">
@@ -65,11 +70,6 @@ $settings = new Simple_Side_Tab_Options();
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_target_blank">Open link in new window</label></th>
                 <td><input name="rum_sst_plugin_options[target_blank]" type="checkbox" value="1" <?php checked( '1', $settings->target_blank ); ?> /></td>
-            </tr>
-
-            <tr valign="top">
-                <th scope="row"><label for="rum_sst_tab_url">Tab URL</label></th>
-                <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo esc_url( $settings->tab_url ); ?>" /></td>
             </tr>
 
             <tr valign="top">
