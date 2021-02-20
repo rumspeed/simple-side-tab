@@ -100,11 +100,11 @@ class Simple_Side_Tab_Options {
     static function get_default_settings() {
         // return default option values; used in class Simple_Side_Tab_Activator
         return array(
-            'text_for_tab'     => 'Simple Side Tab',
+            'text_for_tab'     => '',
             'font_family'      => 'Tahoma, sans-serif',
             'font_weight_bold' => '1',
             'text_shadow'      => '0',
-            'tab_url'          => 'https://rumspeed.com',
+            'tab_url'          => '',
             'pixels_from_top'  => '350',
             'text_color'       => '#ffffff',
             'tab_color'        => '#a0244e',
