@@ -78,8 +78,8 @@ class Simple_Side_Tab_Admin {
 			return;
 		}
 
-        // load the style for farbtastic color picker
-        wp_enqueue_style( 'farbtastic' );
+        // add the WordPress color picker css file
+		wp_enqueue_style( 'wp-color-picker' );
 
         // wp_enqueue_style( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/admin/css/plugin-name-admin.css', array(), $this->version, 'all' );
 	}
@@ -99,11 +99,8 @@ class Simple_Side_Tab_Admin {
 			return;
 		}
 
-        // load the script for farbtastic color picker
-        wp_enqueue_script( 'farbtastic' );
-
-		// JavaScript needed for admin features
-		wp_enqueue_script( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/admin/js/simple-side-tab-admin.js', array( 'jquery' ), $this->version, false );
+		// include our custom jQuery file with WordPress Color Picker dependency
+		wp_enqueue_script( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/admin/js/simple-side-tab-admin.js', array( 'wp-color-picker' ), $this->version, false );
 	}
 
 

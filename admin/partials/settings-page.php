@@ -102,17 +102,17 @@ $settings = $this->settings;
 
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_text_color">Text color</label></th>
-                <td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $settings->text_color ); ?>" name="rum_sst_plugin_options[text_color]" id="color1" /></td>
+                <td width="33%"><input type="text" class="color-field" maxlength="7" size="6" value="<?php echo esc_attr( $settings->text_color ); ?>" name="rum_sst_plugin_options[text_color]" /></td>
             </tr>
 
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_tab_color">Tab color</label></th>
-                <td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $settings->tab_color ); ?>" name="rum_sst_plugin_options[tab_color]" id="color2" /></td>
+                <td width="33%"><input type="text" class="color-field" maxlength="7" size="6" value="<?php echo esc_attr( $settings->tab_color ); ?>" name="rum_sst_plugin_options[tab_color]" /></td>
             </tr>
 
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_hover_color">Tab hover color</label></th>
-                <td width="33%"><input type="text" maxlength="7" size="6" value="<?php echo esc_attr( $settings->hover_color ); ?>" name="rum_sst_plugin_options[hover_color]" id="color3" /></td>
+                <td width="33%"><input type="text" class="color-field" maxlength="7" size="6" value="<?php echo esc_attr( $settings->hover_color ); ?>" name="rum_sst_plugin_options[hover_color]" /></td>
             </tr>
 
             <tr valign="top">
