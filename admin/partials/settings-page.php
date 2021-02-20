@@ -34,12 +34,12 @@ $settings = new Simple_Side_Tab_Options();
 
             <tr valign="top">
                 <th scope="row" width="230"><label for="rum_sst_text_for_tab">Text for tab</label></th>
-                <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo esc_html( $settings->text_for_tab ); ?>" /></td>
+                <td width="525"><input maxlength="30" size="25" type="text" name="rum_sst_plugin_options[text_for_tab]" value="<?php echo esc_html( $settings->text_for_tab ); ?>" required /></td>
             </tr>
 
             <tr valign="top">
                 <th scope="row"><label for="rum_sst_tab_url">Tab URL</label></th>
-                <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo esc_url( $settings->tab_url ); ?>" /></td>
+                <td><input size="45" type="text" name="rum_sst_plugin_options[tab_url]" value="<?php echo esc_url( $settings->tab_url ); ?>" required /></td>
             </tr>
 
             <tr valign="top">
