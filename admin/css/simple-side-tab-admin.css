@@ -1,0 +1,17 @@
+.rumsst_content_wrapper label.textinput,
+.rumsst_content_wrapper label.radioinput,
+.rumsst_content_wrapper label.colorinput,
+.rumsst_content_wrapper label.selectinput,
+.rumsst_content_wrapper label.checkboxinput {
+    float:left;
+    width:225px;
+    margin:5px 0 15px;
+}
+.rumsst_content_wrapper input.textinput,
+.rumsst_content_wrapper select.selectinput {
+    margin:0 0 15px;
+    width:300px;
+}
+.rumsst_content_wrapper input.textinputsm {
+    width:60px;
+}
