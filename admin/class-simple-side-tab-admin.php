@@ -81,7 +81,8 @@ class Simple_Side_Tab_Admin {
         // add the WordPress color picker css file
 		wp_enqueue_style( 'wp-color-picker' );
 
-        // wp_enqueue_style( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/admin/css/plugin-name-admin.css', array(), $this->version, 'all' );
+		// include custom CSS for our settings page
+        wp_enqueue_style( $this->plugin_name, SIMPLE_SIDE_TAB_URI . '/admin/css/simple-side-tab-admin.css', array(), $this->version, 'all' );
 	}
 
 
