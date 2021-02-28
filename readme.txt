@@ -32,8 +32,8 @@ It's easy to use and simple to set up. From one simple settings screen, you can:
 * All CSS, no graphics
 
 = Development =
-<a href="https://github.com/rumspeed/simple-side-tab" title="Simple Side Tab on GitHub">https://github.com/rumspeed/simple-side-tab</a>
-
+Code: <a href="https://github.com/rumspeed/simple-side-tab" title="Simple Side Tab on GitHub">https://github.com/rumspeed/simple-side-tab</a>
+Wiki: <a href="https://github.com/rumspeed/simple-side-tab/wiki" title="Simple Side Tab Wiki">https://github.com/rumspeed/simple-side-tab/wiki</a>
 
 == Installation ==
 
