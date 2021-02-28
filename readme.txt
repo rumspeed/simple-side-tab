@@ -3,7 +3,7 @@ Contributors: srumery
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 5.2
 Tested up to: 5.6
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -79,6 +79,17 @@ for code examples.
 1. Simple Side Tab is action based on option settings
 
 == Changelog ==
+
+= 2.1.0 =
+* NEW: Internationalization
+* NEW: Updated settings page layout and styles
+* NEW: Updated FAQ now links to plugin Wiki for code snippets
+* UPDATE: tab will not display when required fields are not set
+* UPDATE: replace farbtastic with WordPress Color Picker
+* UPDATE: add plugin version number as a comment in the CSS block
+* FIX: Added conditional to compare Text URL value with the current page URL and check for a match
+* FIX: default state for all three checkboxs were set to on; setting initial values to NULL
+* FIX: remove default text and default URL
 
 = 2.0.0 =
 * Refactor code following WordPress Plugin Boilerplate
