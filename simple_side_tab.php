@@ -8,6 +8,8 @@
  * Requires PHP:      7.2
  * Author:            Scot Rumery
  * Author URI:        https://rumspeed.com/simple-side-tab/
+ * Text Domain:       simple-side-tab
+ * Domain Path:       /languages
  * License:           GPLv3
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  */

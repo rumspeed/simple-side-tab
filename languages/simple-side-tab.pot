@@ -1,0 +1,100 @@
+# Copyright (C) 2021 Scot Rumery
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Side Tab 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simple-side-tab\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-02-28T14:57:17+00:00\n"
+"PO-Revision-Date: 2021-02-28T14:57:17+00:00\n"
+"X-Generator: WP-CLI 2.5.0-alpha\n"
+"X-Domain: simple-side-tab\n"
+
+#. Plugin Name of the plugin
+#: admin/partials/settings-page.php:25
+msgid "Simple Side Tab"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://rumspeed.com/wordpress-plugins/simple-side-tab/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab."
+msgstr ""
+
+#. Author of the plugin
+msgid "Scot Rumery"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://rumspeed.com/simple-side-tab/"
+msgstr ""
+
+#: admin/partials/settings-page.php:29
+msgid "Simple Side Tab was created to give you an easy option for adding a linkable tab to the side of your WordPress website. Use it to link to your contact/support/feedback page or use it to drive traffic to a new product you just released. It's quick and easy."
+msgstr ""
+
+#: admin/partials/settings-page.php:37
+msgid "Settings"
+msgstr ""
+
+#: admin/partials/settings-page.php:39
+msgid "Tab text"
+msgstr ""
+
+#: admin/partials/settings-page.php:44
+msgid "Tab URL"
+msgstr ""
+
+#: admin/partials/settings-page.php:49
+msgid "Font"
+msgstr ""
+
+#: admin/partials/settings-page.php:62
+msgid "Bold text"
+msgstr ""
+
+#: admin/partials/settings-page.php:67
+msgid "Drop shadow on hover"
+msgstr ""
+
+#: admin/partials/settings-page.php:72
+msgid "Open link in new window"
+msgstr ""
+
+#: admin/partials/settings-page.php:77
+msgid "Tab location"
+msgstr ""
+
+#: admin/partials/settings-page.php:78
+msgid "Left side"
+msgstr ""
+
+#: admin/partials/settings-page.php:79
+msgid "Right side"
+msgstr ""
+
+#: admin/partials/settings-page.php:83
+msgid "Position from top (px)"
+msgstr ""
+
+#: admin/partials/settings-page.php:88
+msgid "Text color"
+msgstr ""
+
+#: admin/partials/settings-page.php:93
+msgid "Tab color"
+msgstr ""
+
+#: admin/partials/settings-page.php:98
+msgid "Tab hover color"
+msgstr ""
+
+#: admin/partials/settings-page.php:103
+msgid "Save Changes"
+msgstr ""
