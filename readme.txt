@@ -61,33 +61,17 @@ Yes. Now it works on both sides.
 
 No. We want to keep it simple so we are only supporting one tab. More than one tab would complicate this plugin quite a bit. Besides, two tabs doesn't look that great on mobile. If you need more than one tab, this plugin is not for you.
 
-= How can I conditionally change the tab text or the URL? =
+= How can I hide the tab from displaying on specific pages? =
 
-You can use the `rum_sst_plugin_text_for_tab` filter to modify the output of the tab. Here are some examples:
+Use the `rum_sst_plugin_display_tab` filter to conditionally hide the tab on specific pages. Visit 
+<a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Display-Tab-Filter" title="Simple Side Tab on GitHub">Code Snippets: Display Tab Filter</a>
+for code examples.
 
-Add a Font Awesome Icon to the front of the tab text (assuming Font Awesome is supported with your theme)
-<pre><code>// filter the tab output from the Simple Side Tab plugin
-function rum_filter_simple_side_tab_text( $text ) {
+= How can I conditionally change the tab text? =
 
-	$text = &#039;&lt;i class="fa fa-life-ring"&gt;&lt;/i&gt; &#039; . $text;
-
-	return $text;
-}
-add_filter( &#039;rum_sst_plugin_text_for_tab&#039;, &#039;rum_filter_simple_side_tab_text&#039;, 10 , 1 ); </code></pre>
-
-Contidionally turn off the tab on the homepage
-<pre><code>// filter the tab display value to conditionally turn off the tab
-function rum_filter_simple_side_tab_display( $display ) {
-
-	if ( is_front_page() ) {
-
-		$display = false;
-	}
-
-	return $display;
-}
-add_filter( &#039;rum_sst_plugin_display_tab&#039;, &#039;rum_filter_simple_side_tab_display&#039;, 10 , 1 );</code></pre>
-
+Use the `rum_sst_plugin_text_for_tab` filter to modify the output of the tab. Visit 
+<a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Tab-Text-Filter" title="Simple Side Tab on GitHub">Code Snippets: Tab Text Filter</a>
+for code examples.
 
 == Screenshots ==
 
