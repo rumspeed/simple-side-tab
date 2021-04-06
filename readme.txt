@@ -63,15 +63,11 @@ No. We want to keep it simple so we are only supporting one tab. More than one t
 
 = How can I hide the tab from displaying on specific pages? =
 
-Use the `rum_sst_plugin_display_tab` filter to conditionally hide the tab on specific pages. Visit 
-<a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Display-Tab-Filter" title="Simple Side Tab on GitHub">Code Snippets: Display Tab Filter</a>
-for code examples.
+Use the `rum_sst_plugin_display_tab` filter to conditionally hide the tab on specific pages. Visit <a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Display-Tab-Filter" title="Simple Side Tab on GitHub">Code Snippets: Display Tab Filter</a> for code examples.
 
 = How can I conditionally change the tab text? =
 
-Use the `rum_sst_plugin_text_for_tab` filter to modify the output of the tab. Visit 
-<a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Tab-Text-Filter" title="Simple Side Tab on GitHub">Code Snippets: Tab Text Filter</a>
-for code examples.
+Use the `rum_sst_plugin_text_for_tab` filter to modify the output of the tab. Visit <a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Tab-Text-Filter" title="Simple Side Tab on GitHub">Code Snippets: Tab Text Filter</a> for code examples.
 
 == Screenshots ==
 
