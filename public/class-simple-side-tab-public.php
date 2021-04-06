@@ -140,7 +140,7 @@ class Simple_Side_Tab_Public {
         // GitHub issue: https://github.com/rumspeed/simple-side-tab/issues/10
         // WP Repo support: https://wordpress.org/support/topic/php-notices-undefined-index-server_port-and-server_name?replies=1#post-7623551
         if(isset($_SERVER["SERVER_NAME"])) {
-            $s 			= empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+            $s 			= (empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on")) ? "s" : "";
             $sp 		= strtolower($_SERVER["SERVER_PROTOCOL"]);
             $protocol 	= substr($sp, 0, strpos($sp, "/")) . $s;
 
