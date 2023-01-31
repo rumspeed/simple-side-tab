@@ -110,7 +110,7 @@ class Simple_Side_Tab_Admin {
     // action function to add a new submenu under Settings
     public function admin_menu() {
 
-		add_options_page( 'Simple Side Tab Option Settings', 'Simple Side Tab', 'manage_options', SIMPLE_SIDE_TAB_OPTIONS_PAGE, array( $this, 'render_settings_page') );
+		add_options_page(__('Simple Side Tab Option Settings', 'simple-side-tab' ), 'Simple Side Tab', 'manage_options', SIMPLE_SIDE_TAB_OPTIONS_PAGE, array( $this, 'render_settings_page') );
     }
 
 
@@ -128,8 +128,8 @@ class Simple_Side_Tab_Admin {
     // Build array of links for rendering in installed plugins list
     public function plugin_actions( $links ) {
 
-        $settings = array( 'settings' => '<a href="options-general.php?page='.SIMPLE_SIDE_TAB_OPTIONS_PAGE.'">' . __('Settings') . '</a>' );
-        $support  = array( 'support'  => '<a href="https://wordpress.org/support/plugin/simple-side-tab/" target="_blank">' . __('Support') . '</a>' );
+        $settings = array( 'settings' => '<a href="options-general.php?page='.SIMPLE_SIDE_TAB_OPTIONS_PAGE.'">' . __('Settings', 'simple-side-tab') . '</a>' );
+        $support  = array( 'support'  => '<a href="https://wordpress.org/support/plugin/simple-side-tab/" target="_blank">' . __('Support', 'simple-side-tab') . '</a>' );
         $actions  = array_merge( $settings, $support, $links );
 
         return $actions;
@@ -170,7 +170,7 @@ class Simple_Side_Tab_Admin {
 
 		if ( ! $this->settings->is_renderable() ) {
 			echo '<div class="error notice">';
-			echo '	<p>' . __( 'Your tab will not display without the required fields.', 'simple_side_tab' ) . '</p>';
+			echo '	<p>' . __( 'Your tab will not display without the required fields.', 'simple-side-tab' ) . '</p>';
 			echo '</div>';
 		}
 	}
