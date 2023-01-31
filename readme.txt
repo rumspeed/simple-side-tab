@@ -69,6 +69,10 @@ Use the `rum_sst_plugin_display_tab` filter to conditionally hide the tab on spe
 
 Use the `rum_sst_plugin_text_for_tab` filter to modify the output of the tab. Visit <a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Tab-Text-Filter" title="Simple Side Tab on GitHub">Code Snippets: Tab Text Filter</a> for code examples.
 
+= How can change the CSS classes for the tab? =
+
+Use the `rum_sst_plugin_class_for_tab` filter to modify the output of the tab CSS classes. Visit <a href="https://github.com/rumspeed/simple-side-tab/wiki/Code-Snippets:-Tab-Class-Filter" title="Simple Side Tab on GitHub">Code Snippets: Tab Class Filter</a> for code examples.
+
 == Screenshots ==
 
 1. Simple Side Tab options page

@@ -174,17 +174,19 @@ class Simple_Side_Tab_Public {
         // apply filters for the tab text
         $rum_sst_text_for_tab       = apply_filters( 'rum_sst_plugin_text_for_tab', $rum_sst_text_for_tab );
 
+        // apply filters for the tab class
+        $rum_sst_class_for_tab      = apply_filters( 'rum_sst_plugin_class_for_tab', 'rum_sst_contents ' . $this->settings->get_tab_side_class() );
 
         if(preg_match('/(?i)msie [7-8]/',$_SERVER['HTTP_USER_AGENT'])) {
 
             // if IE 7 or 8
             // Write HTML to render tab
-            echo '<a href="' . $rum_sst_tab_url . '"' . $this->settings->get_page_target() . '><div id="rum_sst_tab" class="rum_sst_contents less-ie-9 ' . $this->settings->get_tab_side_class() . '">' . $rum_sst_text_for_tab . '</div></a>';
+            echo '<a href="' . $rum_sst_tab_url . '"' . $this->settings->get_page_target() . '><div id="rum_sst_tab" class="less-ie-9 ' . $rum_sst_class_for_tab . '">' . $rum_sst_text_for_tab . '</div></a>';
         } else {
 
             // if IE>8
             // Write HTML to render tab
-            echo '<a href="' . $rum_sst_tab_url . '"' . $this->settings->get_page_target() . ' id="rum_sst_tab" class="rum_sst_contents ' . $this->settings->get_tab_side_class() . '">' . $rum_sst_text_for_tab . '</a>';
+            echo '<a href="' . $rum_sst_tab_url . '"' . $this->settings->get_page_target() . ' id="rum_sst_tab" class="' . $rum_sst_class_for_tab . '">' . $rum_sst_text_for_tab . '</a>';
         }
     }
 
