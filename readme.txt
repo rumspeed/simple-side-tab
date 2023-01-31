@@ -3,7 +3,7 @@ Contributors: srumery
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 5.2
 Tested up to: 6.1
-Stable tag: 2.1.7
+Stable tag: 2.1.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,7 +80,7 @@ Use the `rum_sst_plugin_class_for_tab` filter to modify the output of the tab CS
 
 == Changelog ==
 
-= 2.1.7 =
+= 2.1.8 =
 * Tested up to: 6.1
 * New filter to alter tab CSS classes
 * Fix I18N Issues - Merged PR from alexclassroom
