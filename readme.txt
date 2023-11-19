@@ -2,8 +2,8 @@
 Contributors: srumery
 Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
 Requires at least: 5.2
-Tested up to: 6.3
-Stable tag: 2.1.10
+Tested up to: 6.4
+Stable tag: 2.1.11
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -79,6 +79,9 @@ Use the `rum_sst_plugin_class_for_tab` filter to modify the output of the tab CS
 1. Simple Side Tab is action based on option settings
 
 == Changelog ==
+
+= 2.1.11 =
+* Tested up to: 6.4
 
 = 2.1.10 =
 * Tested up to: 6.3
