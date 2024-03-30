@@ -3,9 +3,9 @@
  * Plugin Name:       Simple Side Tab
  * Plugin URI:        https://rumspeed.com/wordpress-plugins/simple-side-tab/
  * Description:       Display a side tab that you can easily link to any page. Customize the tab text, font and colors. It's that simple. That's Simple Side Tab.
- * Version:           2.1.11
- * Requires at least: 5.2
- * Requires PHP:      7.2
+ * Version:           2.1.12
+ * Requires at least: 6.0
+ * Requires PHP:      7.4
  * Author:            Scot Rumery
  * Author URI:        https://rumspeed.com/simple-side-tab/
  * Text Domain:       simple-side-tab
@@ -46,7 +46,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin constants.
  */
-define( 'SIMPLE_SIDE_TAB_VERSION', '2.1.11' );
+define( 'SIMPLE_SIDE_TAB_VERSION', '2.1.12' );
 define( 'SIMPLE_SIDE_TAB_DIR', dirname( __FILE__ ) );
 define( 'SIMPLE_SIDE_TAB_URI', plugins_url( '' , __FILE__ ) );
 define( 'SIMPLE_SIDE_TAB_BASENAME', plugin_basename(__FILE__) );
