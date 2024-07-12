@@ -1,7 +1,7 @@
 === Simple Side Tab ===
 Contributors: srumery
-Tags: tab, navigation, admin, call to action, page link, mobile tab, browser tab, side tab
-Requires at least: 5.2
+Tags: tab, side tab, navigation, call to action, page link
+Requires at least: 6.0
 Tested up to: 6.6
 Stable tag: 2.1.13
 License: GPLv3
