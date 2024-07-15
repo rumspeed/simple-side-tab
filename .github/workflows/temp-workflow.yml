@@ -1,0 +1,19 @@
+name: Manual Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  log-repo-info:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Log repository name and version
+      run: |
+        REPO_NAME=$(basename $GITHUB_REPOSITORY)
+        VERSION=$(git describe --tags --always)
+        echo "Repository Name: $REPO_NAME"
+        echo "Version: $VERSION"
