@@ -119,7 +119,13 @@ class Simple_Side_Tab_Admin {
     // Use Settings API to whitelist options
     public function settings_api_init() {
 
-        register_setting( 'rum_sst_option_group', 'rum_sst_plugin_options' );
+        register_setting(
+			'rum_sst_option_group',
+			'rum_sst_plugin_options',
+			[
+				'sanitize_callback' => [ $this, 'sanitize_plugin_options' ]
+			]
+		);
     }
 
 
@@ -175,4 +181,95 @@ class Simple_Side_Tab_Admin {
 		}
 	}
 
+
+
+
+    /**
+     * Sanitize the plugin options.
+     *
+     * @param array $input The unsanitized options input.
+     * @return array The sanitized options.
+     */
+    public function sanitize_plugin_options( $input ) {
+        $sanitized = [];
+
+		$valid_fonts = [
+			'Arial, sans-serif',
+			'Georgia, serif',
+			'"Helvetica Neue", Helvetica, sans-serif',
+			'"Lucida Sans Unicode", "Lucida Grande", sans-serif',
+			'Tahoma, sans-serif',
+			'"Trebuchet MS", sans-serif',
+			'Verdana, sans-serif'
+		];
+
+		$valid_positions = [ 'left', 'right' ];
+
+		if ( isset( $input['text_for_tab'] ) ) {
+            $sanitized['text_for_tab'] = sanitize_text_field( $input['text_for_tab'] );
+        }
+
+        if ( isset( $input['tab_url'] ) ) {
+            $sanitized['tab_url'] = sanitize_url( $input['tab_url'] );
+        }
+
+		if ( isset( $input['font_family'] ) && in_array( $input['font_family'], $valid_fonts, true ) ) {
+			$sanitized['font_family'] = $input['font_family'];
+		} else {
+			$sanitized['font_family'] = 'Arial, sans-serif';
+		}
+
+		if ( isset( $input['font_weight_bold'] ) && $input['font_weight_bold'] === '1' ) {
+			$sanitized['font_weight_bold'] = '1';
+		}
+
+		if ( isset( $input['text_shadow'] ) && $input['text_shadow'] === '1' ) {
+			$sanitized['text_shadow'] = '1';
+		}
+
+		if ( isset( $input['target_blank'] ) && $input['target_blank'] === '1' ) {
+			$sanitized['target_blank'] = '1';
+		}
+
+		if ( isset( $input['left_right'] ) && in_array( $input['left_right'], $valid_positions, true ) ) {
+			$sanitized['left_right'] = $input['left_right'];
+		} else {
+			$sanitized['left_right'] = 'left';
+		}
+
+		if ( isset( $input['pixels_from_top'] ) && is_numeric( $input['pixels_from_top'] ) && absint( $input['pixels_from_top'] ) > 0 ) {
+			$sanitized['pixels_from_top'] = absint( $input['pixels_from_top'] );
+		} else {
+			$sanitized['pixels_from_top'] = 350;
+		}
+
+		if ( isset( $input['text_color'] ) ) {
+			$sanitized['text_color'] = sanitize_hex_color( $input['text_color'] );
+			if ( ! $sanitized['text_color'] ) {
+				$sanitized['text_color'] = '#ffffff';
+			}
+		} else {
+			$sanitized['text_color'] = '#ffffff';
+		}
+
+		if ( isset( $input['tab_color'] ) ) {
+			$sanitized['tab_color'] = sanitize_hex_color( $input['tab_color'] );
+			if ( ! $sanitized['tab_color'] ) {
+				$sanitized['tab_color'] = '#a0244e';
+			}
+		} else {
+			$sanitized['tab_color'] = '#a0244e';
+		}
+
+		if ( isset( $input['hover_color'] ) ) {
+			$sanitized['hover_color'] = sanitize_hex_color( $input['hover_color'] );
+			if ( ! $sanitized['hover_color'] ) {
+				$sanitized['hover_color'] = '#a4a4a4';
+			}
+		} else {
+			$sanitized['hover_color'] = '#a4a4a4';
+		}
+
+		return $sanitized;
+    }
 }
