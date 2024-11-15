@@ -14,16 +14,16 @@
 <style type='text/css'>
 /* START Styles Simple Side Tab v<?php echo SIMPLE_SIDE_TAB_VERSION ?> */
 #rum_sst_tab {
-    font-family:<?php echo $this->settings->font_family; ?>;
-    top:<?php echo $this->settings->pixels_from_top; ?>px;
-    background-color:<?php echo $this->settings->tab_color; ?>;
-    color:<?php echo $this->settings->text_color; ?>;
-    border-style:solid;
-    border-width:0px;
+    font-family: <?php echo esc_attr( $this->settings->font_family ); ?>;
+    top: <?php echo esc_attr( intval( $this->settings->pixels_from_top ) ); ?>px;
+    background-color: <?php echo esc_attr( $this->settings->tab_color ); ?>;
+    color: <?php echo esc_attr( $this->settings->text_color ); ?>;
+    border-style: solid;
+    border-width: 0px;
 }
 
 #rum_sst_tab:hover {
-    background-color: <?php echo $this->settings->hover_color; ?>;
+    background-color: <?php echo esc_attr( $this->settings->hover_color ); ?>;
 <?php
     if ( $this->settings->text_shadow ) {
         if ( $this->settings->left_right == 'left' ) {
