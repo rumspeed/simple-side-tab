@@ -1,18 +1,18 @@
 <div class="rumsst_content_cell_title rumsst-sidebar__title">
-    Rumspeed recommends...
+    <?php esc_html_e( 'Rumspeed recommends...', 'simple-side-tab' ); ?>
 </div>
 <div class="rumsst-sidebar__section">
-    <h2>Web Assets</h2>
-    <p>Need help managing multiple WordPress websites? Web Assets can help.</p>
+    <h2><?php esc_html_e( 'Managed WordPress Hosting', 'simple-side-tab' ); ?></h2>
+    <p><?php esc_html_e( 'Rumspeed offers premium WordPress hosting on high-capacity, sparsely-populated, WordPress-optimized servers. We take the hassle out of hosting.', 'simple-side-tab' ); ?></p>
     <ul>
-        <li><strong>You know how important it is to keep your plugins updated. We'll keep a count of them so you can easily see what sites need attention.</strong></li>
-        <li><strong>The Inactive Plugin Counter will identify plugins not in use so you can get rid of them.</strong></li>
-        <li><strong>Want a list of all the plugins on your site with version numbers? We've got you covered. Is a plugin stuck and not getting updated? We check version numbers and we'll let you know if something isn't right.</strong></li>
-        <li><strong>Easily identify if a site is on an older version of WordPress</strong></li>
-        <li><strong>One click Domain Report will keep you informed of your website domain health.</strong></li>
+        <li><strong><?php esc_html_e( 'Daily off-site backups, and we restore your site quickly when you need it.', 'simple-side-tab' ); ?></strong></li>
+        <li><strong><?php esc_html_e( 'WordPress core updates and daily theme and plugin updates, handled for you.', 'simple-side-tab' ); ?></strong></li>
+        <li><strong><?php esc_html_e( 'Malware and security monitoring, with emergency patching.', 'simple-side-tab' ); ?></strong></li>
+        <li><strong><?php esc_html_e( 'Uptime monitoring plus daily site health and DNS health checks.', 'simple-side-tab' ); ?></strong></li>
+        <li><strong><?php esc_html_e( 'TLS/SSL certificate, spam protection, and priority support included.', 'simple-side-tab' ); ?></strong></li>
     </ul>
-    <a id="rumsst-wat-button" class="rumsst-button-get-wat" 
-        href="https://webassets.app/" target="_blank">
-        Get Web Assets
+    <a id="rumsst-wat-button" class="rumsst-button-get-wat"
+        href="https://rumspeed.com/managed-hosting/" target="_blank" rel="noopener noreferrer">
+        <?php esc_html_e( 'Learn About Managed Hosting', 'simple-side-tab' ); ?>
     </a>
 </div>
