@@ -3,7 +3,7 @@ Contributors: srumery
 Tags: tab, side tab, navigation, call to action, page link
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -79,6 +79,9 @@ Use the `rum_sst_plugin_class_for_tab` filter to modify the output of the tab CS
 1. Simple Side Tab is action based on option settings
 
 == Changelog ==
+
+= 2.2.5 =
+* Settings page sidebar now features Rumspeed Managed WordPress Hosting, replacing Web Assets
 
 = 2.2.4 =
 * Tested up to: 7.1
